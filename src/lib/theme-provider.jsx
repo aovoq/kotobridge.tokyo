@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 
-const ThemeScript = () => {
+const ThemeScript = () => (
    <script
       dangerouslySetInnerHTML={{
          __html: `
@@ -20,7 +20,7 @@ const ThemeScript = () => {
          `
       }}
    />
-}
+)
 
 export const ThemeContext = createContext(undefined)
 

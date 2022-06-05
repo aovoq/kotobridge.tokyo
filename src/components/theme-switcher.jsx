@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Sun, Moon } from 'react-feather'
 import { ThemeContext } from '../lib/theme-provider'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 const Container = styled.div`
    display: flex;

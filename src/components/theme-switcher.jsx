@@ -35,7 +35,7 @@ const IconWrapper = styled.div`
    }
 `
 
-const ThemeSelector = () => {
+const ThemeSwitcher = () => {
    const theme = useContext(ThemeContext)
    const toggleTheme = () => theme.changeTheme()
 
@@ -52,4 +52,4 @@ const ThemeSelector = () => {
    )
 }
 
-export default ThemeSelector
+export default ThemeSwitcher

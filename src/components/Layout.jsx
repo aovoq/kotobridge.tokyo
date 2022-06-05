@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import Header from './Header'
-import ThemeSelector from './ThemeSelector'
+import Header from './header'
+import ThemeSwitcher from './theme-switcher'
 
 const Footer = styled.footer`
    display: flex;
@@ -23,7 +23,7 @@ const Layout = ({ children, home }) => {
          <Main>{children}</Main>
          {home && (
             <Footer>
-               <ThemeSelector />
+               <ThemeSwitcher />
             </Footer>
          )}
       </>

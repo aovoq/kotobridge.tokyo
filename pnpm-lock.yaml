@@ -4,6 +4,7 @@ specifiers:
   eslint: 8.16.0
   eslint-config-next: 12.1.6
   next: 12.1.6
+  normalize-wheel: ^1.0.1
   react: 18.1.0
   react-dom: 18.1.0
   react-feather: ^2.0.10
@@ -11,6 +12,7 @@ specifiers:
 
 dependencies:
   next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
+  normalize-wheel: 1.0.1
   react: 18.1.0
   react-dom: 18.1.0_react@18.1.0
   react-feather: 2.0.10_react@18.1.0
@@ -1577,6 +1579,10 @@ packages:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
+
+  /normalize-wheel/1.0.1:
+    resolution: {integrity: sha512-1OnlAPZ3zgrk8B91HyRj+eVv+kS5u+Z0SCsak6Xil/kmgEia50ga7zfkumayonZrImffAxPU/5WcyGhzetHNPA==}
+    dev: false
 
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}

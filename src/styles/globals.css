@@ -28,7 +28,7 @@ body {
    background: var(--bg);
    transition: color 1s, background 1s;
    height: 100%;
-   overflow: hidden;
+   /* overflow: hidden; */
 }
 
 #__next {
@@ -61,8 +61,8 @@ ul {
 
 .image {
    background: url('../../public/images/day.jpg') center / cover;
-   width: 800px;
-   height: 400px;
+   width: 600px;
+   height: 337.5px;
    transition: 1s;
 }
 

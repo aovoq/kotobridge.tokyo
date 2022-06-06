@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 const AppHeader = styled.header`
+   position: absolute;
+   top: 40px;
    display: flex;
    justify-content: space-between;
    align-items: center;
    height: 40px;
    width: 100%;
    padding: 0 60px;
-   margin-top: 40px;
    color: var(--color1);
 `
 

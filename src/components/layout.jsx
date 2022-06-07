@@ -16,9 +16,16 @@ const Main = styled.main`
    height: 100%;
 `
 
+export const siteTitle = 'kotoBridge'
+
 const Layout = ({ children, home }) => {
    return (
       <>
+         <Head>
+            <title>{siteTitle}</title>
+            <meta name='description'content='江東区の橋を一覧できるウェブサイト。順次追加予定。' />
+            <meta name='og:title' content={siteTitle} />
+         </Head>
          <Header />
          <Main>{children}</Main>
          {home && (

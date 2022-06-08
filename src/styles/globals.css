@@ -27,8 +27,6 @@ body {
    color: var(--fg);
    background: var(--bg);
    transition: color 1s, background 1s;
-   height: 100%;
-   /* overflow: hidden; */
 }
 
 #__next {

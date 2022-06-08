@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import Header from './header'
+import Footer from './footer'
 import ThemeSwitcher from './theme-switcher'
 
-const Footer = styled.footer`
+const BottomNav = styled.footer`
    display: flex;
    justify-content: space-between;
    flex-direction: row-reverse;
@@ -29,10 +30,12 @@ const Layout = ({ children, home }) => {
          </Head>
          <Header />
          <Main>{children}</Main>
-         {home && (
-            <Footer>
+         {home ? (
+            <BottomNav>
                <ThemeSwitcher />
-            </Footer>
+            </BottomNav>
+         ) : (
+            <Footer />
          )}
       </>
    )

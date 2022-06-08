@@ -64,6 +64,11 @@ const Home = () => {
       window.addEventListener('resize', init)
    }
 
+   const removeEventListeners = () => {
+      screenRef.current.removeEventListener('mousewheel', onScroll)
+      window.removeEventListener('resize', init)
+   }
+
    const update = () => {
       if (stop) {
          cancelAnimationFrame(request)
@@ -90,7 +95,9 @@ const Home = () => {
    }
 
    const pageChangeHandler = () => {
+      console.log('stop')
       stop = true
+      removeEventListeners()
    }
 
    useEffect(() => {
@@ -98,7 +105,7 @@ const Home = () => {
       init()
       router.events.on('routeChangeStart', pageChangeHandler)
       return () => {
-         router.events.off('routerChangeStart', pageChangeHandler)
+         router.events.off('routeChangeStart', pageChangeHandler)
       }
    }, [])
 

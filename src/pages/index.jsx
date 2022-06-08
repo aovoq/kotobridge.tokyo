@@ -44,6 +44,12 @@ const Text = styled.div`
 
 const Home = () => {
    const screenRef = useRef(null)
+   let current = 0
+   let target = 0
+   let limit = 0
+   let request
+   let stop = false
+   const router = useRouter()
 
    const _lerp = (start, end, t) => {
       return start * (1 - t) + end * t
@@ -53,23 +59,24 @@ const Home = () => {
       return value < min ? min : value > max ? max : value
    }
 
-   let current = 0
-   let target = 0
-   let limit = 0
-
    const addEventListeners = () => {
       screenRef.current.addEventListener('mousewheel', onScroll)
       window.addEventListener('resize', init)
    }
 
    const update = () => {
+      if (stop) {
+         cancelAnimationFrame(request)
+         return
+      }
+      console.log('update')
       target = _clamp(0, limit, target)
       current = _lerp(current, target, 0.075).toFixed(2)
-      if(current < 0.1){
+      if (current < 0.1) {
          current = 0
       }
       screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
-      requestAnimationFrame(update)
+      request = requestAnimationFrame(update)
    }
 
    const init = () => {
@@ -82,26 +89,39 @@ const Home = () => {
       target += normalized.pixelY
    }
 
+   const pageChangeHandler = () => {
+      stop = true
+   }
+
    useEffect(() => {
       addEventListeners()
       init()
+      router.events.on('routeChangeStart', pageChangeHandler)
+      return () => {
+         router.events.off('routerChangeStart', pageChangeHandler)
+      }
    }, [])
 
    return (
       <Layout home>
+         <GlobalStyles />
          <Container>
             <Screen ref={screenRef}>
-               <BridgeImage className='image'></BridgeImage>
+               <Link href='/bridge/kiyosu-bridge'>
+                  <a>
+                     <BridgeImage className='image' />
+                  </a>
+               </Link>
                <Text>1</Text>
-               <BridgeImage className='image'></BridgeImage>
+               <BridgeImage className='image' />
                <Text>2</Text>
-               <BridgeImage className='image'></BridgeImage>
+               <BridgeImage className='image' />
                <Text>3</Text>
-               <BridgeImage className='image'></BridgeImage>
+               <BridgeImage className='image' />
                <Text>4</Text>
-               <BridgeImage className='image'></BridgeImage>
+               <BridgeImage className='image' />
                <Text>5</Text>
-               <BridgeImage className='image'></BridgeImage>
+               <BridgeImage className='image' />
                <Text>6</Text>
             </Screen>
          </Container>

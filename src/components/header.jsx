@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import styled from 'styled-components'
+import Logo from '../../public/images/kotobridge_logo.svg'
 
 const AppHeader = styled.header`
    position: absolute;
@@ -12,9 +14,10 @@ const AppHeader = styled.header`
    color: var(--color1);
 `
 
-const Logo = styled.div`
+const LogoWrapper = styled.div`
    height: 40px;
-   img {
+   svg {
+      fill: var(--color1);
       height: 100%;
    }
 `
@@ -24,18 +27,26 @@ const NavLink = styled.ul`
    gap: 80px;
    font-size: 20px;
    text-transform: uppercase;
-   font-weight: 600;
-   letter-spacing: 0.2em;
+   font-weight: 500;
+   letter-spacing: 0.4em;
 `
 
 const Header = () => {
    return (
       <AppHeader>
-         <Logo>
-            <img src='/images/kotobridge_logo.svg' alt='kotoBridge' />
-         </Logo>
+         <LogoWrapper>
+            <Link href='/'>
+               <a>
+                  <Logo title='kotoBridge' titleId='kotoBridge' />
+               </a>
+            </Link>
+         </LogoWrapper>
          <NavLink>
-            <li>susume</li>
+            <Link href='/susume'>
+               <a>
+                  <li>susume</li>
+               </a>
+            </Link>
             <li>map</li>
             <li>list</li>
          </NavLink>

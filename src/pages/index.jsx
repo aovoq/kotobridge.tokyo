@@ -42,8 +42,33 @@ const Text = styled.div`
    display: inline-block;
 `
 
+const Item = styled.div`
+   position: relative;
+   display: inline-block;
+   margin-left: 500px;
+   top: calc(50% - 330px / 2);
+`
+const ImgWrapper = styled.div`
+   display: inline-block;
+   position: relative;
+   width: 550px;
+   height: 330px;
+   overflow: hidden;
+`
+const Test = styled.div`
+   background-image: url('images/kiyosu-bridge.jpg');
+   position: absolute;
+   left: -100px;
+   width: 750px;
+   height: 100%;
+   background-size: cover;
+   background-position: center;
+`
+
 const Home = () => {
    const screenRef = useRef(null)
+   let images
+   let imageWidth
    let current = 0
    let target = 0
    let limit = 0
@@ -65,8 +90,25 @@ const Home = () => {
    }
 
    const removeEventListeners = () => {
-      screenRef.current.removeEventListener('mousewheel', onScroll)
+      screenRef.current.removeEventListener('mousewheel', onScroll, { passive: false })
       window.removeEventListener('resize', init)
+      document.addEventListener(
+         'touchmove',
+         (e) => {
+            e.preventDefault()
+         },
+         { passive: false },
+      )
+   }
+
+   const parallaxImages = () => {
+      const ratio = current / 1400
+      let intersectionRatioValue
+
+      images.forEach((img, idx) => {
+         intersectionRatioValue = ratio - idx * 0.7
+         img.style = `transform: translate3d(${intersectionRatioValue * 70}px, 0, 0)`
+      })
    }
 
    const update = () => {
@@ -81,11 +123,13 @@ const Home = () => {
          current = 0
       }
       screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
+      parallaxImages()
       request = requestAnimationFrame(update)
    }
 
    const init = () => {
       limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
+      images = [...document.querySelectorAll('.bridgeImg')]
       update()
    }
 
@@ -114,12 +158,61 @@ const Home = () => {
          <GlobalStyles />
          <Container>
             <Screen ref={screenRef}>
-               <Link href='/bridge/kiyosu-bridge'>
-                  <a>
-                     <BridgeImage className='image' />
-                  </a>
-               </Link>
-               <Text>1</Text>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               <Item>
+                  <Link href='/bridge/kiyosu-bridge'>
+                     <a>
+                        <ImgWrapper>
+                           <Test src='images/kiyosu-bridge.jpg' className='bridgeImg' />
+                        </ImgWrapper>
+                     </a>
+                  </Link>
+               </Item>
+               {/* <Text>1</Text>
                <BridgeImage className='image' />
                <Text>2</Text>
                <BridgeImage className='image' />
@@ -129,7 +222,7 @@ const Home = () => {
                <BridgeImage className='image' />
                <Text>5</Text>
                <BridgeImage className='image' />
-               <Text>6</Text>
+               <Text>6</Text> */}
             </Screen>
          </Container>
       </Layout>

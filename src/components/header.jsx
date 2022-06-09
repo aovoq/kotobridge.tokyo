@@ -37,7 +37,7 @@ const Header = () => {
          <LogoWrapper>
             <Link href='/'>
                <a>
-                  <Logo title='kotoBridge' titleId='kotoBridge' />
+                  <Logo title='kotoBridge' titleid='kotoBridge' />
                </a>
             </Link>
          </LogoWrapper>

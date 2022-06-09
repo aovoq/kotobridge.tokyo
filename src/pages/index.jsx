@@ -87,18 +87,19 @@ const Home = () => {
    const addEventListeners = () => {
       screenRef.current.addEventListener('mousewheel', onScroll)
       window.addEventListener('resize', init)
+      document.addEventListener(
+         'touchmove',
+         (e) => {
+            e.preventDefault()
+            console.log(e)
+         },
+         { passive: false },
+      )
    }
 
    const removeEventListeners = () => {
       screenRef.current.removeEventListener('mousewheel', onScroll, { passive: false })
       window.removeEventListener('resize', init)
-      document.addEventListener(
-         'touchmove',
-         (e) => {
-            e.preventDefault()
-         },
-         { passive: false },
-      )
    }
 
    const parallaxImages = () => {
@@ -123,7 +124,7 @@ const Home = () => {
          current = 0
       }
       screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
-      parallaxImages()
+      // parallaxImages()
       request = requestAnimationFrame(update)
    }
 

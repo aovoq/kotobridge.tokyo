@@ -24,47 +24,17 @@ const Screen = styled.div`
    position: absolute;
    top: 0;
    left: 0;
-   /* width: 2000px; */
    height: 100%;
    white-space: nowrap;
-`
-
-const BridgeImage = styled.div`
-   position: relative;
-   top: calc(50% - 337.5px / 2);
-   display: inline-block;
-   transform: translate3d(0, -15vh, 0);
-   &:not(:first-child) {
-      margin-left: 40vh;
-   }
-`
-
-const Itemx = styled.div`
-   position: relative;
-   display: inline-block;
-   margin-left: 500px;
-   top: calc(50% - 330px / 2);
-`
-const ImgWrapper = styled.div`
-   display: inline-block;
-   position: relative;
-   width: 550px;
-   height: 330px;
-   overflow: hidden;
-`
-const Test = styled.div`
-   background-image: url('images/kiyosu-bridge.jpg');
-   position: absolute;
-   left: -100px;
-   width: 750px;
-   height: 100%;
-   background-size: cover;
-   background-position: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 10%;
 `
 
 const Upper = styled.div`
    position: relative;
-   top: 15%;
+   /* top: 15%; */
    display: flex;
    gap: 240px;
    margin-left: 75px;
@@ -72,10 +42,11 @@ const Upper = styled.div`
 
 const Lower = styled.div`
    position: relative;
-   top: 25%;
+   /* top: 25%; */
    display: flex;
    gap: 240px;
    margin-left: 458px;
+   margin-right: 75px;
 `
 
 const Item = styled.div``
@@ -84,8 +55,8 @@ const BridgeImg = styled.div`
    background: url('images/kiyosu-bridge.jpg');
    background-size: cover;
    background-position: center;
-   width: 500px;
-   height: 281.25px;
+   width: calc(25vh / 9 * 16);
+   height: 25vh;
 `
 const OuterText = styled.div`
    color: #152e71;
@@ -171,7 +142,7 @@ const Home = () => {
          cancelAnimationFrame(request)
          return
       }
-      console.log('update')
+      // console.log('update')
       target = _clamp(0, limit, target)
       current = _lerp(current, target, 0.075).toFixed(2)
       if (current < 0.1) {
@@ -183,6 +154,7 @@ const Home = () => {
    }
 
    const init = () => {
+      console.log('init')
       limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
       images = [...document.querySelectorAll('.bridgeImg')]
       update()

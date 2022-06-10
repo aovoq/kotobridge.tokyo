@@ -5,6 +5,7 @@ import normalizeWheel from 'normalize-wheel'
 import { createGlobalStyle } from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import IndexItem from '../components/index-item'
 
 const GlobalStyles = createGlobalStyle`
    body {
@@ -29,12 +30,11 @@ const Screen = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: center;
-   gap: 10%;
+   gap: 64px;
 `
 
 const Upper = styled.div`
    position: relative;
-   /* top: 15%; */
    display: flex;
    gap: 240px;
    margin-left: 75px;
@@ -42,52 +42,10 @@ const Upper = styled.div`
 
 const Lower = styled.div`
    position: relative;
-   /* top: 25%; */
    display: flex;
    gap: 240px;
    margin-left: 458px;
    margin-right: 75px;
-`
-
-const Item = styled.div``
-const AnkerWrap = styled.a``
-const BridgeImg = styled.div`
-   background: url('images/kiyosu-bridge.jpg');
-   background-size: cover;
-   background-position: center;
-   width: calc(25vh / 9 * 16);
-   height: 25vh;
-`
-const OuterText = styled.div`
-   color: #152e71;
-   font-weight: 900;
-   font-size: 36px;
-   line-height: 1;
-   text-align: right;
-   &::before {
-      content: '';
-      display: block;
-      width: 0;
-      height: 0;
-      margin-top: -4.9px;
-   }
-`
-
-const ImgWrap = styled.div`
-   position: relative;
-   line-height: 1.06;
-
-`
-
-const InnerText = styled.div`
-   position: absolute;
-   bottom: 0;
-   right: 0;
-   font-size: 80px;
-   font-family: 'Noto sans JP';
-   font-weight: 800;
-   color: rgba(238, 242, 244, 0.6);
-   -webkit-text-stroke: 1px #152E71;
 `
 
 const Home = () => {
@@ -154,7 +112,6 @@ const Home = () => {
    }
 
    const init = () => {
-      console.log('init')
       limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
       images = [...document.querySelectorAll('.bridgeImg')]
       update()
@@ -186,152 +143,15 @@ const Home = () => {
          <Container>
             <Screen ref={screenRef}>
                <Upper>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
+                  {[...Array(6)].map(() => (
+                     <IndexItem />
+                  ))}
                </Upper>
                <Lower>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
-                  <Item>
-                     <Link href='bridge/kiyosu-bridge'>
-                        <AnkerWrap>
-                           <ImgWrap>
-                              <BridgeImg />
-                              <InnerText>清洲橋</InnerText>
-                           </ImgWrap>
-                           <OuterText>KIYOSU-BRIDGE</OuterText>
-                        </AnkerWrap>
-                     </Link>
-                  </Item>
+                  {[...Array(6)].map(() => (
+                     <IndexItem />
+                  ))}
                </Lower>
-               {/* <Text>1</Text>
-               <BridgeImage className='image' />
-               <Text>2</Text>
-               <BridgeImage className='image' />
-               <Text>3</Text>
-               <BridgeImage className='image' />
-               <Text>4</Text>
-               <BridgeImage className='image' />
-               <Text>5</Text>
-               <BridgeImage className='image' />
-               <Text>6</Text> */}
             </Screen>
          </Container>
       </Layout>

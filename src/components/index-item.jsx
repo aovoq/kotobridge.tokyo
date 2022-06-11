@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const BridgeImg = styled.div`
-   background: url('images/kiyosu-bridge.jpg');
+   background: url('/images/kiyosu-bridge.jpg');
    background-size: cover;
    background-position: center;
    width: calc(30vh / 9 * 16);

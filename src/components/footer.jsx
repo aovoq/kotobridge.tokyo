@@ -107,9 +107,14 @@ const Arrow = styled.div`
 `
 
 const Footer = () => {
+
+   const pageTop = () => {
+      window.scroll({top: 0, behavior: 'smooth'})
+   }
+
    return (
       <AppFooter>
-         <GoTop>
+         <GoTop onClick={pageTop}>
             <Arrow />
             <GoTopText>TOP</GoTopText>
          </GoTop>

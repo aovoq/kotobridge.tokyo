@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { remark } from 'remark'
+import html from 'remark-html'
 
 const dataDirectory = path.join(process.cwd(), 'bridge-data')
 
@@ -30,14 +32,31 @@ export const getAllDataIds = () => {
    })
 }
 
-export const getData = (id) => {
+export const getData = async (id) => {
    const fullPath = path.join(dataDirectory, `${id}.md`)
    const fileContents = fs.readFileSync(fullPath, 'utf8')
 
-   const matterResult = matter(fileContents)
+   const matterResult = matter(fileContents, { sections: true})
+
+   const jaContent = await remark()
+      .use(html)
+      .process(matterResult.content)
+   const jaHtml = jaContent.toString()
+
+   let enHtml
+   if (matterResult.sections.length === 1) {
+      const enContent = await remark()
+         .use(html)
+         .process(matterResult.sections[0].content)
+      enHtml = enContent.toString()
+   } else {
+      enHtml = jaHtml
+   }
 
    return {
       id,
       ...matterResult.data,
+      jaHtml,
+      enHtml
    }
 }

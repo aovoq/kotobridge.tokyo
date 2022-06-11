@@ -2,16 +2,8 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 import { useEffect, useRef } from 'react'
 import normalizeWheel from 'normalize-wheel'
-import { createGlobalStyle } from 'styled-components'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'
-
-const GlobalStyles = createGlobalStyle`
-   body {
-      overscroll-behavior: none;
-   }
-`
 
 const Container = styled.div`
    position: fixed;
@@ -139,7 +131,6 @@ const Home = () => {
 
    return (
       <Layout home>
-         <GlobalStyles />
          <Container>
             <Screen ref={screenRef}>
                <Upper>

@@ -1,24 +1,9 @@
 import Head from 'next/head'
 import styled from 'styled-components'
 import Layout from '../../components/layout'
+import MiniMap from '../../../public/images/minimap.svg'
 import { getAllDataIds, getData } from '../../lib/bridges'
-
-export const getStaticProps = async ({ params }) => {
-   const bridgeData = getData(params.id)
-   return {
-      props: {
-         bridgeData,
-      },
-   }
-}
-
-export const getStaticPaths = () => {
-   const paths = getAllDataIds()
-   return {
-      paths,
-      fallback: false,
-   }
-}
+import { ArrowUpRight } from 'react-feather'
 
 const Container = styled.div`
    padding-top: 100px;
@@ -112,7 +97,7 @@ const IntroText = styled.p`
    font-size: 'Noto sans JP';
    color: #152e71;
    font-size: 18px;
-   line-height: 2;
+   line-height: 36px;
    letter-spacing: 0.1em;
    &::first-letter {
       font-size: 36px;
@@ -125,11 +110,24 @@ const IntroImg = styled.img`
 `
 
 const History = styled.div`
-   max-width: 1000px;
    margin: auto;
+   margin-bottom: 180px;
+   max-width: 1000px;
    display: flex;
    flex-direction: column;
    align-items: center;
+   .historyTitle {
+      font-size: 24px;
+      color: #152e71;
+      letter-spacing: 0.6em;
+      position: absolute;
+      transform: translateX(-0.8em);
+      line-height: 52px;
+      &Hidden {
+         letter-spacing: 2.3em;
+         visibility: hidden;
+      }
+   }
    .ball {
       width: 52px;
       height: 52px;
@@ -236,8 +234,103 @@ const History = styled.div`
 `
 
 const Location = styled.div`
-
+   max-width: 1000px;
+   margin: auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 100px;
+   margin-bottom: 180px;
 `
+
+const MapWrap = styled.div`
+   border: 3px solid #7d97b8;
+   width: 500px;
+   background: #7d97b8;
+   position: relative;
+   svg {
+      /* stroke: #7d97b8; */
+      /* stroke-width: 3px; */
+      fill: #eef2f4;
+   }
+`
+
+const Coordinate = styled.p`
+   position: absolute;
+   font-size: 14px;
+   color: #eef2f4;
+   bottom: 0;
+   right: 2px;
+   text-align: right;
+   /* font-family: monospace; */
+`
+
+const LocationDetail = styled.div``
+const LocationTitle = styled.div`
+   font-size: 24px;
+   color: #152e71;
+   font-weight: 500;
+   letter-spacing: 0.4em;
+   margin-bottom: 22px;
+`
+
+const LocationAddress = styled.ul`
+   font-size: 16px;
+   font-family: 'Noto sans JP';
+   letter-spacing: 0.2em;
+   padding-bottom: 36px;
+   border-bottom: 1px solid #666;
+   margin-bottom: 27px;
+   li {
+      margin-bottom: 13px;
+      &:last-child {
+         margin: 0;
+      }
+   }
+`
+const LocationAccess = styled.table`
+   font-size: 16px;
+   font-family: 'Noto sans JP';
+   letter-spacing: 0.3em;
+   margin-bottom: 88px;
+   td {
+      padding-bottom: 5px;
+   }
+   td:nth-of-type(1) {
+      width: 135px;
+   }
+   td:nth-of-type(2) {
+      width: 115px;
+   }
+`
+
+const LocationLink = styled.a`
+   color: #152e71;
+   font-size: 18px;
+   letter-spacing: 0.2em;
+   p {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+   }
+`
+
+export const getStaticProps = async ({ params }) => {
+   const bridgeData = await getData(params.id)
+   return {
+      props: {
+         bridgeData,
+      },
+   }
+}
+
+export const getStaticPaths = () => {
+   const paths = getAllDataIds()
+   return {
+      paths,
+      fallback: false,
+   }
+}
 
 const history = [
    {
@@ -263,6 +356,7 @@ const history = [
 ]
 
 const Bridge = ({ bridgeData }) => {
+   console.log(bridgeData)
    const leftHistory = []
    const rightHistory = []
 
@@ -304,6 +398,9 @@ const Bridge = ({ bridgeData }) => {
                <IntroImg src='/images/kiyosu-bridge-05.jpg' />
             </Intro>
             <History>
+               <h2 className='historyTitle'>
+                  HIST<span className='historyTitleHidden'>O</span>RY
+               </h2>
                <div className='ball'>
                   <div className='innerBall' />
                </div>
@@ -324,7 +421,7 @@ const Bridge = ({ bridgeData }) => {
                   </div>
                   <div className='centerLine' />
                   <div className='historyInner right'>
-                  {rightHistory.map((item) => (
+                     {rightHistory.map((item) => (
                         <div className='item' key={item.year}>
                            <div className='itemLines'>
                               <div className='itemLine Slope' />
@@ -341,7 +438,40 @@ const Bridge = ({ bridgeData }) => {
                <div className='arrow' />
             </History>
             <Location>
-
+               <MapWrap>
+                  <MiniMap />
+                  <Coordinate>
+                     35°40'56.5"N
+                     <br />
+                     139°47'31.2"E
+                  </Coordinate>
+               </MapWrap>
+               <LocationDetail>
+                  <LocationTitle>LOCATION</LocationTitle>
+                  <LocationAddress>
+                     <li>東京都道474号浜町北砂町線（清洲橋通り）</li>
+                     <li>東京都江東区清澄-丁目-中央区日本橋中洲</li>
+                  </LocationAddress>
+                  <LocationAccess>
+                     <tbody>
+                        <tr>
+                           <td>清澄白河駅</td>
+                           <td>徒歩八分</td>
+                           <td>600m</td>
+                        </tr>
+                        <tr>
+                           <td>水天宮前</td>
+                           <td>徒歩九分</td>
+                           <td>750m</td>
+                        </tr>
+                     </tbody>
+                  </LocationAccess>
+                  <LocationLink>
+                     <p>
+                     <ArrowUpRight />Google MAP
+                     </p>
+                  </LocationLink>
+               </LocationDetail>
             </Location>
          </Container>
       </Layout>

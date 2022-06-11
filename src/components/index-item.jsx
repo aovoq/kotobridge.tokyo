@@ -47,7 +47,7 @@ const InnerText = styled.div`
 const IndexItem = () => {
    return (
       <>
-         <Link href='bridge/kiyosu-bridge'>
+         <Link href='/bridge/kiyosu-bridge'>
             <a>
                <ImgWrap>
                   <BridgeImg />

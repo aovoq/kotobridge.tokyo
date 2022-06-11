@@ -86,10 +86,33 @@ const Copyright = styled.p`
    letter-spacing: 0.4em;
 `
 
+const GoTop = styled.div`
+   width: 32px;
+   margin: 0 auto;
+   margin-bottom: 20px;
+`
+const GoTopText = styled.p`
+   font-size: 12px;
+   font-weight: 900;
+   letter-spacing: 0.345em;
+   line-height: 1;
+   color: #152e71;
+`
+const Arrow = styled.div`
+   width: 32px;
+   height: 12px;
+   border-left: 16px solid transparent;
+   border-right: 16px solid transparent;
+   border-bottom: 12px solid #152e71;
+`
 
 const Footer = () => {
    return (
       <AppFooter>
+         <GoTop>
+            <Arrow />
+            <GoTopText>TOP</GoTopText>
+         </GoTop>
          <Container>
             <Inner>
                <Nav>

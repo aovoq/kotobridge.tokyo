@@ -31,6 +31,7 @@ body {
    color: var(--fg);
    background: var(--bg);
    transition: color 1s, background 1s;
+   overscroll-behavior: none;
 }
 
 #__next {
@@ -55,6 +56,11 @@ h1,h2,h3,h4,h5,h6 {
 
 ul {
    list-style: none;
+}
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
 }
 
 .image {

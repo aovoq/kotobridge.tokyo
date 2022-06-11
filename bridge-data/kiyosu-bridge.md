@@ -24,8 +24,8 @@ location:
         distance: 750m
    map_link: https://map.google.com
    coordinate:
-      - n: 35°40'56.5"N
-      - e: 139°47'31.2"E
+      n: 35°40'56.5"N
+      e: 139°47'31.2"E
 en:
    title: kiyosu-bridge
    history:
@@ -58,7 +58,7 @@ detail:
    river: Sumida River
    length: 186.3m
    widge: 22.0m
-   structural-format: Self-anchored suspension bridge
+   structuralFormat: Self-anchored suspension bridge
 ---
 清洲橋は、永代橋とともに震災復興事業として「中洲の渡し」と呼ばれる渡し場に架橋されました。西詰の日本橋区中洲町、東詰の深川区清住町の1字ずつを取り「清洲橋」という名になった。繊細な女性的なデザインとし、当時世界で最も美しいとされていたドイツ、ケルン市にあったヒンデンブルク橋がモデルとされ、自碇式吊橋が採用された。
 ---en

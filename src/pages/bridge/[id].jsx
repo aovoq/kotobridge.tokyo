@@ -6,7 +6,7 @@ import { getAllDataIds, getData } from '../../lib/bridges'
 import { ArrowUpRight } from 'react-feather'
 
 const Container = styled.div`
-   padding-top: 100px;
+   padding-top: 200px;
 `
 
 const HeroWrapper = styled.div`
@@ -43,9 +43,9 @@ const SubTitle = styled.h2`
 
 const BridgeSVG = styled.img`
    position: absolute;
-   left: 50%;
+   left: 10%;
    top: 80px;
-   transform: translateX(-250%);
+   transform: translateX(-50%);
 `
 
 const BridgeDetails = styled.div`
@@ -93,13 +93,13 @@ const Intro = styled.section`
    margin-bottom: 180px;
 `
 
-const IntroText = styled.p`
+const IntroText = styled.div`
    font-size: 'Noto sans JP';
    color: #152e71;
    font-size: 18px;
    line-height: 36px;
    letter-spacing: 0.1em;
-   &::first-letter {
+   p:first-letter {
       font-size: 36px;
    }
 `
@@ -332,35 +332,12 @@ export const getStaticPaths = () => {
    }
 }
 
-const history = [
-   {
-      year: '1925',
-      text: '着工',
-   },
-   {
-      year: '1928',
-      text: '竣工',
-   },
-   {
-      year: '2000',
-      text: '第一回土木学会選奨土木遺産に選定',
-   },
-   {
-      year: '2007',
-      text: '国の重要文化財（建造物）に指定',
-   },
-   {
-      year: '2020',
-      text: 'ライトアップ工事完了、点灯開始',
-   },
-]
-
 const Bridge = ({ bridgeData }) => {
-   console.log(bridgeData)
    const leftHistory = []
    const rightHistory = []
+   const imageBaseUrl = `/images/bridge/${bridgeData.id}/${bridgeData.id}`
 
-   history.map((item, idx) => {
+   bridgeData.history.map((item, idx) => {
       if (idx % 2 === 0) {
          leftHistory.push(item)
       } else {
@@ -377,27 +354,26 @@ const Bridge = ({ bridgeData }) => {
             <HeroWrapper>
                <Title>{bridgeData.title}</Title>
                <SubTitle>{bridgeData.id}</SubTitle>
-               <BridgeSVG src='/images/kiyosu-bridge.svg' />
-               <HeroImage src='/images/kiyosu-bridge.jpg' />
+               <BridgeSVG src={`${imageBaseUrl}.svg`} />
+               <HeroImage src={`${imageBaseUrl}-01.jpg`} />
                <BridgeDetails>
-                  <BridgeDetail>River : Sumida River</BridgeDetail>
-                  <BridgeDetail>Length : 186.3m</BridgeDetail>
-                  <BridgeDetail>Widge : 22.0m</BridgeDetail>
-                  <BridgeDetail>Structural format : Self-anchored suspension bridge</BridgeDetail>
+                  <BridgeDetail>River : {bridgeData.detail.river}</BridgeDetail>
+                  <BridgeDetail>Length : {bridgeData.detail.length}</BridgeDetail>
+                  <BridgeDetail>Widge : {bridgeData.detail.widge}</BridgeDetail>
+                  <BridgeDetail>Structural format : {bridgeData.detail.structuralFormat}</BridgeDetail>
                </BridgeDetails>
             </HeroWrapper>
             <Gallery>
-               <GalleryImg src='/images/kiyosu-bridge-02.jpg' />
-               <GalleryImg src='/images/kiyosu-bridge-03.jpg' />
-               <GalleryImg src='/images/kiyosu-bridge-04.jpg' />
+               <GalleryImg src={`${imageBaseUrl}-02.jpg`} />
+               <GalleryImg src={`${imageBaseUrl}-03.jpg`} />
+               <GalleryImg src={`${imageBaseUrl}-04.jpg`} />
             </Gallery>
             <Intro>
-               <IntroText>
-                  清洲橋は、永代橋とともに震災復興事業として「中洲の渡し」と呼ばれる渡し場に架橋されました。西詰の日本橋区中洲町、東詰の深川区清住町の1字ずつを取り「清洲橋」という名になった。繊細な女性的なデザインとし、当時世界で最も美しいとされていたドイツ、ケルン市にあったヒンデンブルク橋がモデルとされ、自碇式吊橋が採用された。
-               </IntroText>
-               <IntroImg src='/images/kiyosu-bridge-05.jpg' />
+               <IntroText dangerouslySetInnerHTML={{ __html: bridgeData.jaHtml}} />
+               <IntroImg src={`${imageBaseUrl}-05.jpg`} />
             </Intro>
             <History>
+               {/* TODO: bridgeData.history.length に応じてheight調整する必要がある */}
                <h2 className='historyTitle'>
                   HIST<span className='historyTitleHidden'>O</span>RY
                </h2>
@@ -441,29 +417,27 @@ const Bridge = ({ bridgeData }) => {
                <MapWrap>
                   <MiniMap />
                   <Coordinate>
-                     35°40'56.5"N
+                     {bridgeData.location.coordinate.n}
                      <br />
-                     139°47'31.2"E
+                     {bridgeData.location.coordinate.e}
                   </Coordinate>
                </MapWrap>
                <LocationDetail>
                   <LocationTitle>LOCATION</LocationTitle>
                   <LocationAddress>
-                     <li>東京都道474号浜町北砂町線（清洲橋通り）</li>
-                     <li>東京都江東区清澄-丁目-中央区日本橋中洲</li>
+                     {bridgeData.location.address.map((text, idx) => (
+                        <li key={idx}>{text}</li>
+                     ))}
                   </LocationAddress>
                   <LocationAccess>
                      <tbody>
-                        <tr>
-                           <td>清澄白河駅</td>
-                           <td>徒歩八分</td>
-                           <td>600m</td>
-                        </tr>
-                        <tr>
-                           <td>水天宮前</td>
-                           <td>徒歩九分</td>
-                           <td>750m</td>
-                        </tr>
+                        {bridgeData.location.access.map((row, idx) => (
+                           <tr key={idx}>
+                              <td>{row.departure}</td>
+                              <td>{row.time}</td>
+                              <td>{row.distance}</td>
+                           </tr>
+                        ))}
                      </tbody>
                   </LocationAccess>
                   <LocationLink>

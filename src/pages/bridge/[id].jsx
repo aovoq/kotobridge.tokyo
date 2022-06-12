@@ -14,9 +14,11 @@ const HeroWrapper = styled.div`
    margin-bottom: 113px;
 `
 const HeroImage = styled.img`
+   display: var(--day);
    width: 90%;
-   border-top: solid 30px #fff;
-   border-right: solid 30px #fff;
+   border-top: solid 30px;
+   border-right: solid 30px;
+   border-color: #fff;
 `
 
 const Title = styled.h1`
@@ -81,6 +83,7 @@ const Gallery = styled.section`
 const GalleryImg = styled.img`
    width: 600px;
    border: 10px solid #fff;
+   display: var(--day);
 `
 
 const Intro = styled.section`
@@ -107,6 +110,7 @@ const IntroText = styled.div`
 const IntroImg = styled.img`
    border: 10px solid #fff;
    width: 425px;
+   display: var(--day);
 `
 
 const History = styled.div`
@@ -251,7 +255,7 @@ const MapWrap = styled.div`
    svg {
       /* stroke: #7d97b8; */
       /* stroke-width: 3px; */
-      fill: #eef2f4;
+      fill: var(--bg);
    }
 `
 
@@ -315,6 +319,19 @@ const LocationLink = styled.a`
    }
 `
 
+const NightHeroImage = styled(HeroImage)`
+   display: var(--night);
+   border-color: var(--gray);
+`
+const NightGalleryImg = styled(GalleryImg)`
+   display: var(--night);
+   border: 10px solid var(--gray);
+`
+const NightIntroImg = styled(IntroImg)`
+   display: var(--night);
+   border: 10px solid var(--gray);
+`
+
 export const getStaticProps = async ({ params }) => {
    const bridgeData = await getData(params.id)
    return {
@@ -356,6 +373,7 @@ const Bridge = ({ bridgeData }) => {
                <SubTitle>{bridgeData.id}</SubTitle>
                <BridgeSVG src={`${imageBaseUrl}.svg`} />
                <HeroImage src={`${imageBaseUrl}-01.jpg`} />
+               <NightHeroImage src={`${imageBaseUrl}-night-01.jpg`} />
                <BridgeDetails>
                   <BridgeDetail>River : {bridgeData.detail.river}</BridgeDetail>
                   <BridgeDetail>Length : {bridgeData.detail.length}</BridgeDetail>
@@ -367,10 +385,14 @@ const Bridge = ({ bridgeData }) => {
                <GalleryImg src={`${imageBaseUrl}-02.jpg`} />
                <GalleryImg src={`${imageBaseUrl}-03.jpg`} />
                <GalleryImg src={`${imageBaseUrl}-04.jpg`} />
+               <NightGalleryImg src={`${imageBaseUrl}-night-02.jpg`} />
+               <NightGalleryImg src={`${imageBaseUrl}-night-03.jpg`} />
+               <NightGalleryImg src={`${imageBaseUrl}-night-04.jpg`} />
             </Gallery>
             <Intro>
-               <IntroText dangerouslySetInnerHTML={{ __html: bridgeData.jaHtml}} />
+               <IntroText dangerouslySetInnerHTML={{ __html: bridgeData.jaHtml }} />
                <IntroImg src={`${imageBaseUrl}-05.jpg`} />
+               <NightIntroImg src={`${imageBaseUrl}-night-05.jpg`} />
             </Intro>
             <History>
                {/* TODO: bridgeData.history.length に応じてheight調整する必要がある */}
@@ -442,7 +464,8 @@ const Bridge = ({ bridgeData }) => {
                   </LocationAccess>
                   <LocationLink>
                      <p>
-                     <ArrowUpRight />Google MAP
+                        <ArrowUpRight />
+                        Google MAP
                      </p>
                   </LocationLink>
                </LocationDetail>

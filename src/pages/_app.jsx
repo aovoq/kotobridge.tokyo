@@ -22,6 +22,8 @@ const GlobalStyles = createGlobalStyle`
    --text: #666;
    --white: #fff;
    --bg: #EEF2F4;
+   --day: visible;
+   --night: none;
 }
 
 [data-theme='dark'] {
@@ -32,6 +34,8 @@ const GlobalStyles = createGlobalStyle`
    --white: #A3A3A3;
    --text: #A3A3A3;
    --bg: #2C2E2F;
+   --day: none;
+   --night: visible;
 }
 
 html,

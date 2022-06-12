@@ -45,16 +45,16 @@ const InnerText = styled.div`
    -webkit-text-stroke: 1px #152E71;
 `
 
-const IndexItem = () => {
+const IndexItem = (props) => {
    return (
       <>
-         <Link href='/bridge/kiyosu-bridge'>
+         <Link href={`/bridge/${props.data.id}`}>
             <a>
                <ImgWrap>
-                  <BridgeImg />
-                  <InnerText>清洲橋</InnerText>
+                  <BridgeImg style={{backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-01.jpg')`}}/>
+                  <InnerText>{props.data.title}</InnerText>
                </ImgWrap>
-               <OuterText>KIYOSU-BRIDGE</OuterText>
+               <OuterText>{props.data.id}</OuterText>
             </a>
          </Link>
       </>

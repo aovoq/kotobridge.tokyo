@@ -1,5 +1,10 @@
 ---
 title: 清洲橋
+detail:
+   river: Sumida River
+   length: 186.3m
+   widge: 22.0m
+   structuralFormat: Self-anchored suspension bridge
 history:
    - year: 1925
      text: 着工
@@ -14,7 +19,7 @@ history:
 location:
    address:
       - 東京都道474号浜町北砂町線（清洲橋通り）
-      - 東京都江東区清澄-丁目-中央区日本橋中洲
+      - 中央区日本橋中洲-江東区清澄一丁目
    access:
       - departure: 清澄白河駅
         time: 徒歩八分
@@ -22,7 +27,7 @@ location:
       - departure: 水天宮前
         time: 徒歩九分
         distance: 750m
-   map_link: https://map.google.com
+   map_link: https://goo.gl/maps/UceuyXwsL35NJxsL8
    coordinate:
       n: 35°40'56.5"N
       e: 139°47'31.2"E
@@ -50,15 +55,6 @@ en:
          - departure: Suitengumae station
            time: 9 min. walk
            distance: 750m
-      map_link: https://map.google.com
-      coordinate:
-         - n: 35°40'56.5"N
-         - e: 139°47'31.2"E
-detail:
-   river: Sumida River
-   length: 186.3m
-   widge: 22.0m
-   structuralFormat: Self-anchored suspension bridge
 ---
 清洲橋は、永代橋とともに震災復興事業として「中洲の渡し」と呼ばれる渡し場に架橋されました。西詰の日本橋区中洲町、東詰の深川区清住町の1字ずつを取り「清洲橋」という名になった。繊細な女性的なデザインとし、当時世界で最も美しいとされていたドイツ、ケルン市にあったヒンデンブルク橋がモデルとされ、自碇式吊橋が採用された。
 ---en

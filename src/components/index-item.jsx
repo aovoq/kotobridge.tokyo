@@ -2,7 +2,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const BridgeImg = styled.div`
-   background: url('/images/kiyosu-bridge.jpg');
+   background: url('/images/bridge/kiyosu-bridge/kiyosu-bridge-01.jpg');
    background-size: cover;
    background-position: center;
    width: calc(30vh / 9 * 16);
@@ -18,6 +18,7 @@ const OuterText = styled.div`
    font-size: 36px;
    line-height: 1;
    text-align: right;
+   text-transform: uppercase;
    &::before {
       content: '';
       display: block;

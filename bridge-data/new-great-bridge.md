@@ -35,7 +35,7 @@ en:
    title: new-great-bridge
    history:
    - year: 1693
-     text: The first new bridge is built.
+     text: The first Shin Ohashi Bridge is built.
    - year: 1912
      text: Completion of the old bridge
    - year: 1976

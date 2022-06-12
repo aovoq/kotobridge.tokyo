@@ -14,22 +14,33 @@ const BottomNav = styled.footer`
    bottom: 50px;
 `
 
-const Main = styled.main`
-   height: 100%;
-`
-
 export const siteTitle = 'kotoBridge'
 
 const Layout = ({ children, home }) => {
    return (
       <>
          <Head>
-            <title>{siteTitle}</title>
-            <meta name='description'content='江東区の橋を一覧できるウェブサイト。順次追加予定。' />
-            <meta name='og:title' content={siteTitle} />
+            <title>
+               {siteTitle}
+               {home && ' - 江東区で橋巡り'}
+            </title>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+            <meta name='description' content='江東区の橋を一覧できるウェブサイト。順次追加予定！あなたも江東区で橋巡りをしてみませんか？' />
+            <meta property='og:locale' content='ja' />
+            <meta property='og:type' content='website' />
+            <meta property='og:title' content={siteTitle + ' - 江東区で橋巡り'} />
+            <meta property='og:site_name' content={siteTitle + ' - 江東区で橋巡り'} />
+            <meta property='og:description' content='江東区の橋を一覧できるウェブサイト。順次追加予定！あなたも江東区で橋巡りをしてみませんか？' />
+            <meta property='og:url' content='https://kotobridge.tokyo' />
+            <meta property='og:image' content='https://kotobridge.tokyo/share-image.jpg' />
+            <meta property='og:image:type' content='image/jpeg' />
+            <meta property='og:image:wdige' content='1200' />
+            <meta property='og:image:height' content='630' />
+            <meta property='og:image:alt' content={siteTitle + ' - 江東区で橋巡り'} />
+            <meta property='twitter:card' content='summary_large_image' />
          </Head>
          <Header />
-         <Main>{children}</Main>
+         <main>{children}</main>
          {home ? (
             <BottomNav>
                <ThemeSwitcher />

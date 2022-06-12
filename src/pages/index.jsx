@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import normalizeWheel from 'normalize-wheel'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'
+import { getSortedData } from '../lib/bridges'
 
 const Container = styled.div`
    position: fixed;
@@ -40,7 +41,8 @@ const Lower = styled.div`
    margin-right: 75px;
 `
 
-const Home = () => {
+const Home = ({ allBridgeData }) => {
+   const router = useRouter()
    const screenRef = useRef(null)
    let images
    let imageWidth
@@ -49,7 +51,18 @@ const Home = () => {
    let limit = 0
    let request
    let stop = false
-   const router = useRouter()
+   const upperData = []
+   const lowerData = []
+
+
+   allBridgeData.map((item, idx) => {
+      if (idx % 2 === 0) {
+         upperData.push(item)
+      } else {
+         lowerData.push(item)
+      }
+   })
+   console.log(upperData, lowerData)
 
    const _lerp = (start, end, t) => {
       return start * (1 - t) + end * t
@@ -60,7 +73,7 @@ const Home = () => {
    }
 
    const addEventListeners = () => {
-      screenRef.current.addEventListener('mousewheel', onScroll)
+      window.addEventListener('wheel', onScroll)
       window.addEventListener('resize', init)
       document.addEventListener(
          'touchmove',
@@ -73,7 +86,8 @@ const Home = () => {
    }
 
    const removeEventListeners = () => {
-      screenRef.current.removeEventListener('mousewheel', onScroll, { passive: false })
+      console.log('revemoEventListener')
+      window.removeEventListener('wheel', onScroll)
       window.removeEventListener('resize', init)
    }
 
@@ -92,24 +106,27 @@ const Home = () => {
          cancelAnimationFrame(request)
          return
       }
-      // console.log('update')
       target = _clamp(0, limit, target)
       current = _lerp(current, target, 0.075).toFixed(2)
       if (current < 0.1) {
          current = 0
       }
-      screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
+      if (screenRef) {
+         screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
+      }
       // parallaxImages()
       request = requestAnimationFrame(update)
    }
 
    const init = () => {
+      console.log('init')
       limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
       images = [...document.querySelectorAll('.bridgeImg')]
       update()
    }
 
    const onScroll = (event) => {
+      console.log('onScroll')
       const normalized = normalizeWheel(event)
       target += normalized.pixelY
    }
@@ -121,6 +138,7 @@ const Home = () => {
    }
 
    useEffect(() => {
+      console.log('hello')
       addEventListeners()
       init()
       router.events.on('routeChangeStart', pageChangeHandler)
@@ -134,19 +152,28 @@ const Home = () => {
          <Container>
             <Screen ref={screenRef}>
                <Upper>
-                  {[...Array(6)].map(() => (
-                     <IndexItem />
+                  {upperData.map((data, idx) => (
+                     <IndexItem key={idx} data={data} />
                   ))}
                </Upper>
                <Lower>
-                  {[...Array(6)].map(() => (
-                     <IndexItem />
+                  {lowerData.map((data, idx) => (
+                     <IndexItem key={idx} data={data} />
                   ))}
                </Lower>
             </Screen>
          </Container>
       </Layout>
    )
+}
+
+export const getStaticProps = async () => {
+   const allBridgeData = getSortedData()
+   return {
+      props: {
+         allBridgeData
+      }
+   }
 }
 
 export default Home

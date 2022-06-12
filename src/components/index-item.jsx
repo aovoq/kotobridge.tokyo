@@ -13,7 +13,7 @@ const BridgeImg = styled.div`
    }
 `
 const OuterText = styled.div`
-   color: #152e71;
+   color: var(--accent);
    font-weight: 900;
    font-size: 36px;
    line-height: 1;
@@ -41,8 +41,8 @@ const InnerText = styled.div`
    font-size: min(8vh, 80px);
    font-family: 'Noto sans JP';
    font-weight: 800;
-   color: rgba(238, 242, 244, 0.6);
-   -webkit-text-stroke: 1px #152E71;
+   color: var(--index-text-fill);
+   -webkit-text-stroke: 1px var(--accent);
 `
 
 const IndexItem = (props) => {

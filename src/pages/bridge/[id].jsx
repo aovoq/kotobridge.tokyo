@@ -24,8 +24,8 @@ const Title = styled.h1`
    font-weight: 900;
    font-family: 'Noto Sans JP', sans-serif;
    color: transparent;
-   text-stroke: 1px #152e71;
-   -webkit-text-stroke: 1px #152e71;
+   text-stroke: 1px var(--accent);
+   -webkit-text-stroke: 1px var(--accent);
    line-height: 1;
    text-align: right;
 `
@@ -37,7 +37,7 @@ const SubTitle = styled.h2`
    top: 66px;
    right: 0;
    text-transform: uppercase;
-   color: #152e71;
+   color: var(--accent);
    line-height: 96px;
 `
 
@@ -64,8 +64,8 @@ const BridgeDetail = styled.div`
    font-size: 20px;
    font-weight: 300;
    letter-spacing: 0.1em;
-   color: #fff;
-   background: #152e71;
+   color: var(--bridge-detail-text);
+   background: var(--bridge-detail-bg);
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
 `
@@ -95,7 +95,7 @@ const Intro = styled.section`
 
 const IntroText = styled.div`
    font-size: 'Noto sans JP';
-   color: #152e71;
+   color: var(--accent);
    font-size: 18px;
    line-height: 36px;
    letter-spacing: 0.1em;
@@ -118,7 +118,7 @@ const History = styled.div`
    align-items: center;
    .historyTitle {
       font-size: 24px;
-      color: #152e71;
+      color: var(--accent);
       letter-spacing: 0.6em;
       position: absolute;
       transform: translateX(-0.8em);
@@ -132,7 +132,7 @@ const History = styled.div`
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      border: 4px solid #152e71;
+      border: 4px solid var(--accent);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -140,7 +140,7 @@ const History = styled.div`
          width: 32px;
          height: 32px;
          border-radius: 50%;
-         background: #152e71;
+         background: var(--accent);
       }
    }
    .historyOuter {
@@ -149,7 +149,7 @@ const History = styled.div`
       .centerLine {
          width: 4px;
          height: 500px;
-         background: #152e71;
+         background: var(--accent);
       }
       .historyInner {
          width: 500px;
@@ -193,7 +193,7 @@ const History = styled.div`
             }
             .itemLine {
                position: relative;
-               background: #152e71;
+               background: var(--accent);
                &.Slope {
                   width: 4px;
                   height: 25px;
@@ -213,13 +213,13 @@ const History = styled.div`
                size: 22px;
                font-weight: 600;
                letter-spacing: 0.4em;
-               color: #152e71;
+               color: var(--accent);
             }
             .text {
                size: 16px;
                font-weight: 300;
                letter-spacing: 0.2em;
-               color: #152e71;
+               color: var(--accent);
             }
          }
       }
@@ -227,7 +227,7 @@ const History = styled.div`
    .arrow {
       width: 30px;
       height: 50px;
-      border-top: 25px solid #152e71;
+      border-top: 25px solid var(--accent);
       border-right: 15px solid transparent;
       border-left: 15px solid transparent;
    }
@@ -268,7 +268,7 @@ const Coordinate = styled.p`
 const LocationDetail = styled.div``
 const LocationTitle = styled.div`
    font-size: 24px;
-   color: #152e71;
+   color: var(--accent);
    font-weight: 500;
    letter-spacing: 0.4em;
    margin-bottom: 22px;
@@ -305,7 +305,7 @@ const LocationAccess = styled.table`
 `
 
 const LocationLink = styled.a`
-   color: #152e71;
+   color: var(--accent);
    font-size: 18px;
    letter-spacing: 0.2em;
    p {

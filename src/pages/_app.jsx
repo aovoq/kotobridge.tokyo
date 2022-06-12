@@ -8,18 +8,29 @@ const GlobalStyles = createGlobalStyle`
    box-sizing: border-box;
    margin: 0;
    padding: 0;
+   transition: color 1s, background 1s;
 }
 
 :root {
    --color1: #7D97B8;
+   --accent: #152E71;
    --gray: #666;
    --inactive: #999;
-   --fg: dimgray;
+   --index-text-fill: rgba(238, 242, 244, 0.4);
+   --bridge-detail-text: #fff;
+   --bridge-detail-bg: #152E71;
+   --text: #666;
+   --white: #fff;
    --bg: #EEF2F4;
 }
 
 [data-theme='dark'] {
-   --fg: white;
+   --accent: #CDDBFF;
+   --index-text-fill: transparent;
+   --bridge-detail-text: #333;
+   --bridge-detail-bg: #fff;
+   --white: #A3A3A3;
+   --text: #A3A3A3;
    --bg: #2C2E2F;
 }
 
@@ -28,9 +39,8 @@ body {
    padding: 0;
    margin: 0;
    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-   color: var(--fg);
+   color: var(--text);
    background: var(--bg);
-   transition: color 1s, background 1s;
    overscroll-behavior: none;
 }
 

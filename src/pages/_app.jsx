@@ -62,17 +62,6 @@ table {
    border-collapse: collapse;
    border-spacing: 0;
 }
-
-.image {
-   background: url('images/day.jpg') center / cover;
-   width: 600px;
-   height: 337.5px;
-   transition: 1s;
-}
-
-[data-theme='dark'] .image {
-   background: url('images/night.jpg') bottom 25% center / cover;
-}
 `
 
 const MyApp = ({ Component, pageProps }) => {

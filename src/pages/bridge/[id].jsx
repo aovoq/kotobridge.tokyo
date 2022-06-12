@@ -395,7 +395,6 @@ const Bridge = ({ bridgeData }) => {
                <NightIntroImg src={`${imageBaseUrl}-night-05.jpg`} />
             </Intro>
             <History>
-               {/* TODO: bridgeData.history.length に応じてheight調整する必要がある */}
                <h2 className='historyTitle'>
                   HIST<span className='historyTitleHidden'>O</span>RY
                </h2>
@@ -417,7 +416,7 @@ const Bridge = ({ bridgeData }) => {
                         </div>
                      ))}
                   </div>
-                  <div className='centerLine' />
+                  <div className='centerLine' style={{height: `${bridgeData.history.length*100+100}px`}} />
                   <div className='historyInner right'>
                      {rightHistory.map((item) => (
                         <div className='item' key={item.year}>

@@ -18,6 +18,8 @@ export const getSortedData = () => {
 
       return { id, ...matterResult.data }
    })
+
+   return allData
 }
 
 export const getAllDataIds = () => {

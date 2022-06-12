@@ -26,6 +26,9 @@ export default class MyDocument extends Document {
       return (
          <Html lang='ja'>
             <Head>
+               <link rel="icon" href="/favicon.ico" />
+               <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" type="image/png" />
+               <link rel="canonical" href="https://kotobridge.tokyo" />
                <link href='https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap' rel='stylesheet' />
                <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap' rel='stylesheet' />
             </Head>

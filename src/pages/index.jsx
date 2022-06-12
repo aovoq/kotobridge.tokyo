@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import normalizeWheel from 'normalize-wheel'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'
@@ -30,7 +30,7 @@ const Upper = styled.div`
    position: relative;
    display: flex;
    gap: 240px;
-   margin-left: 75px;
+   margin: 0 75px;
 `
 
 const Lower = styled.div`
@@ -53,6 +53,7 @@ const Home = ({ allBridgeData }) => {
    let stop = false
    const upperData = []
    const lowerData = []
+   const [posX, setPosX] = useState(0)
 
 
    allBridgeData.map((item, idx) => {
@@ -112,7 +113,8 @@ const Home = ({ allBridgeData }) => {
          current = 0
       }
       if (screenRef) {
-         screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
+         setPosX(current)
+         // screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
       }
       // parallaxImages()
       request = requestAnimationFrame(update)
@@ -150,7 +152,7 @@ const Home = ({ allBridgeData }) => {
    return (
       <Layout home>
          <Container>
-            <Screen ref={screenRef}>
+            <Screen ref={screenRef} style={{transform: `translate3d(-${posX}px,0,0)`}}>
                <Upper>
                   {upperData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />

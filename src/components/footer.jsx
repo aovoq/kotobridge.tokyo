@@ -96,14 +96,14 @@ const GoTopText = styled.p`
    font-weight: 900;
    letter-spacing: 0.345em;
    line-height: 1;
-   color: #152e71;
+   color: var(--accent);
 `
 const Arrow = styled.div`
    width: 32px;
    height: 12px;
    border-left: 16px solid transparent;
    border-right: 16px solid transparent;
-   border-bottom: 12px solid #152e71;
+   border-bottom: 12px solid var(--accent);
 `
 
 const Footer = () => {

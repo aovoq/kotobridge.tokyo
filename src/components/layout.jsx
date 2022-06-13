@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import Header from './header'
 import Footer from './footer'
 import ThemeSwitcher from './theme-switcher'
+import BurgerButton from './burger-button'
+import { useState } from 'react'
+import BurgerMenu from './burger-menu'
 
 const BottomNav = styled.footer`
    display: flex;
@@ -17,6 +20,12 @@ const BottomNav = styled.footer`
 export const siteTitle = 'kotoBridge'
 
 const Layout = ({ children, home }) => {
+   const [menuVisibility, setMenuVisibility] = useState(false)
+
+   const toggleMenu = () => {
+      setMenuVisibility((prevState) => !prevState)
+   }
+
    return (
       <>
          <Head>
@@ -48,6 +57,8 @@ const Layout = ({ children, home }) => {
          ) : (
             <Footer />
          )}
+         <BurgerMenu menuVisibility={menuVisibility} />
+         <BurgerButton toggleMenu={toggleMenu}  />
       </>
    )
 }

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import Logo from '../../public/images/kotobridge_logo.svg'
+import ThemeToggleButton from './theme-toggle-button'
 
 const AppHeader = styled.header`
    position: absolute;
@@ -11,13 +12,14 @@ const AppHeader = styled.header`
    height: 40px;
    width: 100%;
    padding: 0 60px;
-   color: var(--color1);
+   color: var(--base-color);
+   z-index: 999;
 `
 
 const LogoWrapper = styled.div`
    height: 40px;
    svg {
-      fill: var(--color1);
+      fill: var(--base-color);
       height: 100%;
    }
 `
@@ -29,6 +31,16 @@ const NavLink = styled.ul`
    text-transform: uppercase;
    font-weight: 500;
    letter-spacing: 0.4em;
+   @media (max-width: 768px) {
+      display: none;
+   }
+`
+
+const MobileHead = styled.div`
+
+   @media (min-width: 768px) {
+      display: none;
+   }
 `
 
 const Header = () => {
@@ -50,6 +62,9 @@ const Header = () => {
             <li>map</li>
             <li>list</li>
          </NavLink>
+         <MobileHead>
+            <ThemeToggleButton />
+         </MobileHead>
       </AppHeader>
    )
 }

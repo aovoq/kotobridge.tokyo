@@ -11,26 +11,44 @@ const Container = styled.div`
    top: 0;
    left: 0;
    width: 100%;
-   height: 100vh;
+   height: -webkit-fill-available;
+   min-height: 100vh;
+   @media (max-width: 768px) {
+      position: static;
+   }
 `
 
 const Screen = styled.div`
-   position: absolute;
+   position: relative;
+   display: inline-block;
    top: 0;
    left: 0;
    height: 100%;
    white-space: nowrap;
-   display: flex;
+   /* display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: center; */
    gap: 64px;
+   will-change: transform;
+   @media (max-width: 768px) {
+      width: 100%;
+   }
 `
 
 const Upper = styled.div`
+   display: inline-block;
    position: relative;
+   top: calc(50% - 10vh);
+   height: 20vh;
    display: flex;
-   gap: 240px;
-   margin: 0 75px;
+   gap: 180px;
+   margin: 0 100px;
+   @media (max-width: 768px) {
+      top: 120px;
+      flex-direction: column;
+      gap: 60px;
+      margin: 0;
+   }
 `
 
 const Lower = styled.div`
@@ -45,7 +63,6 @@ const Home = ({ allBridgeData }) => {
    const router = useRouter()
    const screenRef = useRef(null)
    let images
-   let imageWidth
    let current = 0
    let target = 0
    let limit = 0
@@ -53,8 +70,6 @@ const Home = ({ allBridgeData }) => {
    let stop = false
    const upperData = []
    const lowerData = []
-   const [posX, setPosX] = useState(0)
-
 
    allBridgeData.map((item, idx) => {
       if (idx % 2 === 0) {
@@ -63,7 +78,6 @@ const Home = ({ allBridgeData }) => {
          lowerData.push(item)
       }
    })
-   console.log(upperData, lowerData)
 
    const _lerp = (start, end, t) => {
       return start * (1 - t) + end * t
@@ -74,13 +88,12 @@ const Home = ({ allBridgeData }) => {
    }
 
    const addEventListeners = () => {
-      window.addEventListener('wheel', onScroll)
+      window.addEventListener('wheel', onScroll, {passive: false})
       window.addEventListener('resize', init)
       document.addEventListener(
          'touchmove',
          (e) => {
             e.preventDefault()
-            console.log(e)
          },
          { passive: false },
       )
@@ -88,7 +101,7 @@ const Home = ({ allBridgeData }) => {
 
    const removeEventListeners = () => {
       console.log('revemoEventListener')
-      window.removeEventListener('wheel', onScroll)
+      window.removeEventListener('wheel', onScroll, {passive: false})
       window.removeEventListener('resize', init)
    }
 
@@ -112,9 +125,11 @@ const Home = ({ allBridgeData }) => {
       if (current < 0.1) {
          current = 0
       }
-      if (screenRef) {
-         setPosX(current)
-         // screenRef.current.style = `transform: translate3d(-${current}px, 0, 0)`
+      if (document.querySelector('#screen') !== null) {
+         document.querySelector('#screen').style = `transform: translate3d(-${current}px, 0, 0)`
+      } else {
+         cancelAnimationFrame(request)
+         return
       }
       // parallaxImages()
       request = requestAnimationFrame(update)
@@ -128,12 +143,15 @@ const Home = ({ allBridgeData }) => {
    }
 
    const onScroll = (event) => {
-      console.log('onScroll')
-      const normalized = normalizeWheel(event)
-      target += normalized.pixelY
+      if (window.matchMedia('(min-width: 768px)').matches) {
+         event.preventDefault()
+         console.log('onScroll')
+         const normalized = normalizeWheel(event)
+         target += normalized.pixelY
+      }
    }
 
-   const pageChangeHandler = () => {
+   const handleRouteChange = () => {
       console.log('stop')
       stop = true
       removeEventListeners()
@@ -143,26 +161,35 @@ const Home = ({ allBridgeData }) => {
       console.log('hello')
       addEventListeners()
       init()
-      router.events.on('routeChangeStart', pageChangeHandler)
+      router.events.on('routeChangeStart', handleRouteChange)
       return () => {
-         router.events.off('routeChangeStart', pageChangeHandler)
+         router.events.off('routeChangeStart', handleRouteChange)
       }
    }, [])
 
    return (
       <Layout home>
          <Container>
-            <Screen ref={screenRef} style={{transform: `translate3d(-${posX}px,0,0)`}}>
+            <Screen ref={screenRef} id='screen' >
                <Upper>
-                  {upperData.map((data, idx) => (
+                  {allBridgeData.map((data, idx) => (
+                     <IndexItem key={idx} data={data} />
+                  ))}
+                  {allBridgeData.map((data, idx) => (
+                     <IndexItem key={idx} data={data} />
+                  ))}
+                  {allBridgeData.map((data, idx) => (
+                     <IndexItem key={idx} data={data} />
+                  ))}
+                  {allBridgeData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}
                </Upper>
-               <Lower>
+               {/* <Lower>
                   {lowerData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}
-               </Lower>
+               </Lower> */}
             </Screen>
          </Container>
       </Layout>
@@ -173,8 +200,8 @@ export const getStaticProps = async () => {
    const allBridgeData = getSortedData()
    return {
       props: {
-         allBridgeData
-      }
+         allBridgeData,
+      },
    }
 }
 

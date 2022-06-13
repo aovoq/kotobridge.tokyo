@@ -6,6 +6,7 @@ specifiers:
   eslint-config-next: 12.1.6
   gray-matter: ^4.0.3
   next: 12.1.6
+  next-sitemap: ^3.0.5
   normalize-wheel: ^1.0.1
   react: 18.1.0
   react-dom: 18.1.0
@@ -29,6 +30,7 @@ devDependencies:
   '@svgr/webpack': 6.2.1
   eslint: 8.16.0
   eslint-config-next: 12.1.6_eslint@8.16.0+next@12.1.6
+  next-sitemap: 3.0.5_next@12.1.6
 
 packages:
 
@@ -1300,6 +1302,10 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
+
+  /@corex/deepmerge/4.0.22:
+    resolution: {integrity: sha512-PARVBRhvf3eBfag/sJMoTfAE3a5xhW3Jio7pvN9HcPy06PQnBM0j0ozCdSC0pkocMEizI5giBX3TSWFqVeMo+A==}
+    dev: true
 
   /@emotion/is-prop-valid/1.1.2:
     resolution: {integrity: sha512-3QnhqeL+WW88YjYbQL5gUIkthuMw7a0NGbZ7wfFVk2kg/CK5w8w5FFa0RzWjyY1+sujN0NWbtSHH6OJmWHtJpQ==}
@@ -3476,6 +3482,19 @@ packages:
 
   /natural-compare/1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    dev: true
+
+  /next-sitemap/3.0.5_next@12.1.6:
+    resolution: {integrity: sha512-YdiW5wYNruyZCvhGGOMAdTylCQuxQkZKbSFV9Fjuf/U7aAt8lJwc3HG/WvR0n3Q1Y8c1ZiW/24UDZLQPfoKsYg==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      '@next/env': '*'
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.22
+      minimist: 1.2.6
+      next: 12.1.6_ef5jwxihqo6n7gxfmzogljlgcm
     dev: true
 
   /next/12.1.6_ef5jwxihqo6n7gxfmzogljlgcm:

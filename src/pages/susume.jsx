@@ -2,95 +2,141 @@ import Layout from '../components/layout'
 import styled from 'styled-components'
 
 const Container = styled.div`
-   padding-top: 100px;
+   padding-top: 200px;
    width: 100%;
-   max-width: 960px;
-   margin: auto;
+   @media (max-width: 768px) {
+      padding-top: 120px;
+   }
 `
 
-const PageHead = styled.section`
-   position: relative;
-   margin-top: 100px;
-   margin-bottom: 200px;
+const HalfImageSection = styled.section`
+   width: 100%;
+   display: flex;
+   &:nth-child(even) {
+      flex-direction: row-reverse;
+   }
+   &:last-child {
+      margin-bottom: 100px;
+   }
+   @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      &:nth-child(even) {
+         flex-direction: column-reverse;
+      }
+   }
 `
-const HeadImg = styled.div`
-   background-image: url('/images/kiyosu-bridge-03.jpg');
-   background-size: cover;
-   background-position: center;
-   width: 80%;
-   height: 500px;
-   backdrop-filter: sepia;
-`
-const HeadTitle = styled.h1`
-   position: absolute;
-   top: 20%;
-   left: 50%;
+const TextBox = styled.div`
    width: 50%;
-   padding-left: 0.4em;
-   padding-bottom: 0.1em;
-   font-family: 'Noto sans JP', sans-serif;
-   font-size: 32px;
-   letter-spacing: 0.4em;
-   color: #fff;
-   background: #7d97b8;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   @media (max-width: 768px) {
+      width: 100%;
+      display: block;
+      text-align: center;
+   }
 `
-const HeadSubTitle = styled.p`
-   position: absolute;
-   top: 32%;
-   left: 55%;
-   width: 50%;
-   padding-left: 0.4em;
-   padding-bottom: 0.1em;
-   font-family: 'Noto sans JP', sans-serif;
-   font-size: 16px;
-   letter-spacing: 0.4em;
-   color: #fff;
-   background: #7d97b8;
+const TextBoxInner = styled.div`
+   width: 60%;
+   h1 {
+      font-size: 24px;
+      margin-bottom: 40px;
+      letter-spacing: 0.2em;
+   }
+   p {
+      font-size: 16px;
+      line-height: 1.5;
+      letter-spacing: 0.15em;
+   }
+   @media (max-width: 768px) {
+      padding: 20px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
 `
 
-const PageSection = styled.section`
-   position: relative;
-   margin-bottom: 200px;
-`
-const SectionImg = styled.div`
-   background-image: url('/images/bridge-charm.jpg');
-   background-size: cover;
-   background-position: center;
-   width: 70%;
-   height: 500px;
-   position: absolute;
-`
-const SectionTextWrap = styled.div`
+const ImgBox = styled.div`
    width: 50%;
-`
-const SectionTitle = styled.h2`
-   font-size: 32px;
-   color: #152e71;
-`
-const SectionText = styled.p`
-   color: #152e71;
-   font-size: 18px;
+   img {
+      width: 100%;
+   }
+   @media (max-width: 768px) {
+      width: 100%;
+   }
 `
 
 const Susume = () => {
    return (
       <Layout>
          <Container>
-            <PageHead>
-               <HeadImg />
-               <HeadTitle>橋巡りのすゝめ</HeadTitle>
-               <HeadSubTitle>あなたも橋巡りをしてみませんか？</HeadSubTitle>
-            </PageHead>
-            <PageSection>
-               <SectionImg />
-               <SectionTextWrap>
-                  <SectionTitle>橋が魅せてくれる物</SectionTitle>
-                  <SectionText>
-                     橋というのは生活に欠かせない物です。 そんな橋の機能的な美しさと、建築的な美しさに目を向けてみて欲しいです。 また、昼と夜で違った顔を見せてくれるでしょう。
-                     ライトアップされる橋はまた違う美しさや、暗い中の無骨な橋の悠然とした様も良いですよ。
-                  </SectionText>
-               </SectionTextWrap>
-            </PageSection>
+            <HalfImageSection>
+               <TextBox>
+                  <TextBoxInner>
+                     <h1>橋巡りのすゝめ</h1>
+                     <p>あなたも橋巡りをしてみませんか？</p>
+                  </TextBoxInner>
+               </TextBox>
+               <ImgBox>
+                  <img src='/images/susume-01.jpg' alt='' />
+               </ImgBox>
+            </HalfImageSection>
+            <HalfImageSection>
+               <TextBox>
+                  <TextBoxInner>
+                     <h1>橋が魅せてくれる物</h1>
+                     <p>
+                        橋というのは生活に欠かせない物です。 <br />
+                        そんな橋の機能的な美しさと、建築的な美しさに目を向けてみて欲しいです。 <br />
+                        また、昼と夜で違った顔を見せてくれるでしょう。
+                        <br />
+                        ライトアップされる橋はまた違う美しさや、暗い中の無骨な橋の悠然とした様も良いですよ。
+                     </p>
+                  </TextBoxInner>
+               </TextBox>
+               <ImgBox>
+                  <img src='/images/susume-02.jpg' alt='' />
+               </ImgBox>
+            </HalfImageSection>
+            <HalfImageSection>
+               <TextBox>
+                  <TextBoxInner>
+                     <h1>色々な移動手段</h1>
+                     <p>
+                        ドライブで橋を巡っても良いですし、 <br />
+                        巡らずとも近くに来た時に徒歩で寄ってみるのもいいでしょう。 <br />
+                        個人的には自転車がオススメです。
+                        <br />
+                        川辺の風を感じながら、小回り良く色々な橋を見ることが出来ます。 <br />
+                        江東区は至る所にレンタサイクルのポータルが設置されています。ぜひ利用してみてください。
+                     </p>
+                  </TextBoxInner>
+               </TextBox>
+               <ImgBox>
+                  <img src='/images/susume-03.jpg' alt='' />
+               </ImgBox>
+            </HalfImageSection>
+            <HalfImageSection>
+               <TextBox>
+                  <TextBoxInner>
+                     <h1>水上バスでのクルージング</h1>
+                     <p>
+                        隅田川には、水上バスでのクルージングが存在します。 <br />
+                        リーズナブルな料金で長時間楽しむことができ、
+                        <br />
+                        様々な運行ルートと乗り場があるため移動を兼ねる事も可能です。
+                        <br />
+                        運行時間を確認して行くといいでしょう。
+                     </p>
+                  </TextBoxInner>
+               </TextBox>
+               <ImgBox>
+                  <img src='/images/susume-04.jpg' alt='' />
+               </ImgBox>
+            </HalfImageSection>
          </Container>
       </Layout>
    )

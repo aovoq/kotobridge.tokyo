@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Sun, Moon } from 'react-feather'
 import { ThemeContext } from '../lib/theme-provider'
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 
 const Container = styled.div`
    display: flex;
@@ -12,6 +12,10 @@ const Container = styled.div`
    font-weight: 500;
    padding: 0 6px;
    color: var(--gray);
+   z-index: 999;
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 
 const IconWrapper = styled.div`
@@ -37,15 +41,14 @@ const IconWrapper = styled.div`
 
 const ThemeSwitcher = () => {
    const theme = useContext(ThemeContext)
-   const toggleTheme = () => theme.changeTheme()
 
    return (
       <Container>
-         <IconWrapper onClick={toggleTheme} className={theme.theme === 'light' && 'active'}>
+         <IconWrapper onClick={() => {theme.changeTheme('light')}} className={theme.theme === 'light' && 'active'}>
             <Sun size={24} />
          </IconWrapper>
          <span>/</span>
-         <IconWrapper onClick={toggleTheme} className={theme.theme === 'dark' && 'active'}>
+         <IconWrapper onClick={() => {theme.changeTheme('dark')}} className={theme.theme === 'dark' && 'active'}>
             <Moon size={24} />
          </IconWrapper>
       </Container>

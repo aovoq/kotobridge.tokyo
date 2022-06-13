@@ -15,18 +15,29 @@ const Container = styled.div`
    width: 100%;
    height: 500px;
    position: relative;
+   @media (max-width: 768px) {
+      height: 300px;
+   }
 `
 
 const Inner = styled.div`
    display: flex;
    justify-content: space-between;
-   width: 900px;
+   max-width: 1000px;
+   width: 100%;
+   height: 100%;
    margin: auto;
+   padding: 40px;
    padding-top: 130px;
+   @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+   }
 `
 
 const Nav = styled.div`
-   padding-left: 72px;
 `
 
 const LogoWrapper = styled.div`
@@ -44,6 +55,9 @@ const NavList = styled.ul`
    gap: 35px;
    font-size: 12px;
    letter-spacing: 0.4em;
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 
 const Contact = styled.div``
@@ -53,6 +67,9 @@ const ContactTitle = styled.div`
    letter-spacing: 0.4em;
    margin-bottom: 45px;
    padding-top: 12px;
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 const ContactContent = styled.div`
    font-size: 12px;
@@ -64,6 +81,13 @@ const ContactContent = styled.div`
       padding-bottom: 25px;
       border-bottom: 1px solid #fff;
    }
+   @media (max-width: 768px) {
+      text-align: center;
+      &:nth-of-type(3) {
+         padding-bottom: 25px;
+         border-bottom: none;
+      }
+   }
 `
 const ContactSocials = styled.div`
    display: flex;
@@ -71,6 +95,9 @@ const ContactSocials = styled.div`
    svg {
       width: 29px;
       height: 29px;
+   }
+   @media (max-width: 768px) {
+      justify-content: center;
    }
 `
 
@@ -107,9 +134,8 @@ const Arrow = styled.div`
 `
 
 const Footer = () => {
-
    const pageTop = () => {
-      window.scroll({top: 0, behavior: 'smooth'})
+      window.scroll({ top: 0, behavior: 'smooth' })
    }
 
    return (
@@ -148,9 +174,15 @@ const Footer = () => {
                   <ContactContent>MANAGER: Ao Hirata</ContactContent>
                   <ContactContent>EMAIL: contact@kotoBridge.tokyo</ContactContent>
                   <ContactSocials>
-                     <a><I_Logo /></a>
-                     <a><F_Logo /></a>
-                     <a><T_Logo /></a>
+                     <a>
+                        <I_Logo />
+                     </a>
+                     <a>
+                        <F_Logo />
+                     </a>
+                     <a>
+                        <T_Logo />
+                     </a>
                   </ContactSocials>
                </Contact>
             </Inner>

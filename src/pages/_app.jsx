@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 :root {
-   --color1: #7D97B8;
+   --base-color: #7D97B8;
    --accent: #152E71;
    --gray: #666;
    --inactive: #999;
@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
    --text: #666;
    --white: #fff;
    --bg: #EEF2F4;
-   --day: visible;
+   --day: block;
    --night: none;
 }
 
@@ -35,13 +35,11 @@ const GlobalStyles = createGlobalStyle`
    --text: #A3A3A3;
    --bg: #2C2E2F;
    --day: none;
-   --night: visible;
+   --night: block;
 }
 
 html,
 body {
-   padding: 0;
-   margin: 0;
    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
    color: var(--text);
    background: var(--bg);

@@ -4,6 +4,7 @@ import Layout from '../../components/layout'
 import MiniMap from '../../../public/images/minimap.svg'
 import { getAllDataIds, getData } from '../../lib/bridges'
 import { ArrowUpRight } from 'react-feather'
+import History from '../../components/history'
 
 const Container = styled.div`
    padding-top: 200px;
@@ -79,11 +80,17 @@ const Gallery = styled.section`
    margin-bottom: 185px;
    width: 100%;
    overflow: hidden;
+   @media (max-width: 768px) {
+      gap: 25px;
+   }
 `
 const GalleryImg = styled.img`
    width: 600px;
    border: 10px solid #fff;
    display: var(--day);
+   @media (max-width: 768px) {
+      width: 60%;
+   }
 `
 
 const Intro = styled.section`
@@ -94,6 +101,10 @@ const Intro = styled.section`
    align-items: center;
    gap: 100px;
    margin-bottom: 180px;
+   @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 80px;
+   }
 `
 
 const IntroText = styled.div`
@@ -102,8 +113,44 @@ const IntroText = styled.div`
    font-size: 18px;
    line-height: 36px;
    letter-spacing: 0.1em;
+   position: relative;
    p:first-letter {
       font-size: 36px;
+   }
+   @media (max-width: 768px) {
+      width: 90%;
+   }
+`
+
+const IntroLine = styled.div`
+   width: 6px;
+   height: 6px;
+   border-radius: 50%;
+   background: var(--accent);
+   margin: auto;
+   position: relative;
+   &::before {
+      content: '';
+      width: 100px;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      border-radius: 2px;
+      left: -110px;
+      top: 2px;
+   }
+   &::after {
+      content: '';
+      width: 100px;
+      height: 2px;
+      background: var(--accent);
+      position: absolute;
+      border-radius: 2px;
+      right: -110px;
+      top: 2px;
+   }
+   @media (min-width: 768px) {
+      display: none;
    }
 `
 
@@ -111,129 +158,8 @@ const IntroImg = styled.img`
    border: 10px solid #fff;
    width: 425px;
    display: var(--day);
-`
-
-const History = styled.div`
-   margin: auto;
-   margin-bottom: 180px;
-   max-width: 1000px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   .historyTitle {
-      font-size: 24px;
-      color: var(--accent);
-      letter-spacing: 0.6em;
-      position: absolute;
-      transform: translateX(-0.8em);
-      line-height: 52px;
-      &Hidden {
-         letter-spacing: 2.3em;
-         visibility: hidden;
-      }
-   }
-   .ball {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      .innerBall {
-         width: 32px;
-         height: 32px;
-         border-radius: 50%;
-         background: var(--accent);
-      }
-   }
-   .historyOuter {
-      display: flex;
-      justify-content: center;
-      .centerLine {
-         width: 4px;
-         height: 500px;
-         background: var(--accent);
-      }
-      .historyInner {
-         width: 500px;
-         &.left {
-            text-align: right;
-            .item {
-               &:first-child {
-                  margin-top: 70px;
-               }
-               flex-direction: row-reverse;
-               .itemLines {
-                  flex-direction: row-reverse;
-                  .itemLine {
-                     &.Slope {
-                        right: -1px;
-                        left: auto;
-                        transform-origin: 4px 4px;
-                        transform: rotate(35deg);
-                     }
-                     &.Hori {
-                        top: 17px;
-                        left: auto;
-                        right: 7px;
-                     }
-                  }
-               }
-            }
-         }
-         .item {
-            &:first-child {
-               margin-top: 150px;
-            }
-            margin-top: 120px;
-            position: relative;
-            width: 100%;
-            height: 30px;
-            display: flex;
-            gap: 20px;
-            .itemLines {
-               display: flex;
-            }
-            .itemLine {
-               position: relative;
-               background: var(--accent);
-               &.Slope {
-                  width: 4px;
-                  height: 25px;
-                  left: -1px;
-                  transform-origin: 0px 4px;
-                  transform: rotate(-35deg);
-               }
-               &.Hori {
-                  height: 4px;
-                  width: 40px;
-                  top: 17px;
-                  left: 7px;
-               }
-            }
-            .year {
-               margin-top: 6px;
-               size: 22px;
-               font-weight: 600;
-               letter-spacing: 0.4em;
-               color: var(--accent);
-            }
-            .text {
-               size: 16px;
-               font-weight: 300;
-               letter-spacing: 0.2em;
-               color: var(--accent);
-            }
-         }
-      }
-   }
-   .arrow {
-      width: 30px;
-      height: 50px;
-      border-top: 25px solid var(--accent);
-      border-right: 15px solid transparent;
-      border-left: 15px solid transparent;
+   @media (max-width: 768px) {
+      display: none;
    }
 `
 
@@ -245,6 +171,11 @@ const Location = styled.div`
    align-items: center;
    gap: 100px;
    margin-bottom: 180px;
+   @media (max-width: 768px) {
+      flex-direction: column;
+      width: 90%;
+      max-width: 90%;
+   }
 `
 
 const MapWrap = styled.div`
@@ -256,6 +187,9 @@ const MapWrap = styled.div`
       /* stroke: #7d97b8; */
       /* stroke-width: 3px; */
       fill: var(--bg);
+   }
+   @media (max-width: 768px) {
+      width: 100%;
    }
 `
 
@@ -269,7 +203,11 @@ const Coordinate = styled.p`
    /* font-family: monospace; */
 `
 
-const LocationDetail = styled.div``
+const LocationDetail = styled.div`
+   @media (max-width: 768px) {
+      width: 100%;
+   }
+`
 const LocationTitle = styled.div`
    font-size: 24px;
    color: var(--accent);
@@ -350,17 +288,7 @@ export const getStaticPaths = () => {
 }
 
 const Bridge = ({ bridgeData }) => {
-   const leftHistory = []
-   const rightHistory = []
    const imageBaseUrl = `/images/bridge/${bridgeData.id}/${bridgeData.id}`
-
-   bridgeData.history.map((item, idx) => {
-      if (idx % 2 === 0) {
-         leftHistory.push(item)
-      } else {
-         rightHistory.push(item)
-      }
-   })
 
    return (
       <Layout>
@@ -390,50 +318,13 @@ const Bridge = ({ bridgeData }) => {
                <NightGalleryImg src={`${imageBaseUrl}-night-04.jpg`} />
             </Gallery>
             <Intro>
+               <IntroLine />
                <IntroText dangerouslySetInnerHTML={{ __html: bridgeData.jaHtml }} />
+               <IntroLine />
                <IntroImg src={`${imageBaseUrl}-05.jpg`} />
                <NightIntroImg src={`${imageBaseUrl}-night-05.jpg`} />
             </Intro>
-            <History>
-               <h2 className='historyTitle'>
-                  HIST<span className='historyTitleHidden'>O</span>RY
-               </h2>
-               <div className='ball'>
-                  <div className='innerBall' />
-               </div>
-               <ul className='historyOuter'>
-                  <div className='historyInner left'>
-                     {leftHistory.map((item) => (
-                        <div className='item' key={item.year}>
-                           <div className='itemLines'>
-                              <div className='itemLine Slope' />
-                              <div className='itemLine Hori' />
-                           </div>
-                           <li>
-                              <p className='year'>{item.year}年</p>
-                              <p className='text'>{item.text}</p>
-                           </li>
-                        </div>
-                     ))}
-                  </div>
-                  <div className='centerLine' style={{height: `${bridgeData.history.length*100+100}px`}} />
-                  <div className='historyInner right'>
-                     {rightHistory.map((item) => (
-                        <div className='item' key={item.year}>
-                           <div className='itemLines'>
-                              <div className='itemLine Slope' />
-                              <div className='itemLine Hori' />
-                           </div>
-                           <li>
-                              <p className='year'>{item.year}年</p>
-                              <p className='text'>{item.text}</p>
-                           </li>
-                        </div>
-                     ))}
-                  </div>
-               </ul>
-               <div className='arrow' />
-            </History>
+            <History data={bridgeData.history} />
             <Location>
                <MapWrap>
                   <MiniMap />

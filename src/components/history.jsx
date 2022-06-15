@@ -8,6 +8,9 @@ const Container = styled.div`
    flex-direction: column;
    align-items: center;
    margin-bottom: 180px;
+   @media (max-width: 768px) {
+      margin-bottom: 80px;
+   }
 `
 
 const HeadText = styled.h2`

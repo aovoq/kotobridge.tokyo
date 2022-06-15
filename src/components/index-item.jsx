@@ -73,6 +73,7 @@ const InnerText = styled.div`
    color: transparent;
    opacity: 0.6;
    -webkit-text-stroke: 1px var(--accent);
+   text-stroke: 1px var(--accent);
    @media (max-width: 768px) {
       display: none;
    }

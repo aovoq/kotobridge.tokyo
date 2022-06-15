@@ -26,8 +26,8 @@ const Title = styled.h1`
    font-weight: 900;
    font-family: 'Noto Sans JP', sans-serif;
    color: transparent;
-   text-stroke: 1px var(--accent);
    -webkit-text-stroke: 1px var(--accent);
+   text-stroke: 1px var(--accent);
    line-height: 1;
    text-align: right;
 `

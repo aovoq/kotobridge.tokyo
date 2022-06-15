@@ -5,14 +5,16 @@ import normalizeWheel from 'normalize-wheel'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'
 import { getSortedData } from '../lib/bridges'
+import Loading from '../components/index-loading'
 
 const Container = styled.div`
    position: fixed;
    top: 0;
    left: 0;
    width: 100%;
-   height: -webkit-fill-available;
+   height: 100%;
    min-height: 100vh;
+   min-height: -webkit-fill-available;
    @media (max-width: 768px) {
       position: static;
    }
@@ -25,9 +27,6 @@ const Screen = styled.div`
    left: 0;
    height: 100%;
    white-space: nowrap;
-   /* display: flex;
-   flex-direction: column;
-   justify-content: center; */
    gap: 64px;
    will-change: transform;
    @media (max-width: 768px) {
@@ -35,8 +34,7 @@ const Screen = styled.div`
    }
 `
 
-const Upper = styled.div`
-   display: inline-block;
+const List = styled.div`
    position: relative;
    top: calc(50% - 10vh);
    height: 20vh;
@@ -49,14 +47,6 @@ const Upper = styled.div`
       gap: 60px;
       margin: 0;
    }
-`
-
-const Lower = styled.div`
-   position: relative;
-   display: flex;
-   gap: 240px;
-   margin-left: 458px;
-   margin-right: 75px;
 `
 
 const Home = ({ allBridgeData }) => {
@@ -88,7 +78,7 @@ const Home = ({ allBridgeData }) => {
    }
 
    const addEventListeners = () => {
-      window.addEventListener('wheel', onScroll, {passive: false})
+      window.addEventListener('wheel', onScroll, { passive: false })
       window.addEventListener('resize', init)
       document.addEventListener(
          'touchmove',
@@ -101,7 +91,7 @@ const Home = ({ allBridgeData }) => {
 
    const removeEventListeners = () => {
       console.log('revemoEventListener')
-      window.removeEventListener('wheel', onScroll, {passive: false})
+      window.removeEventListener('wheel', onScroll, { passive: false })
       window.removeEventListener('resize', init)
    }
 
@@ -169,9 +159,10 @@ const Home = ({ allBridgeData }) => {
 
    return (
       <Layout home>
+         <Loading />
          <Container>
-            <Screen ref={screenRef} id='screen' >
-               <Upper>
+            <Screen ref={screenRef} id='screen'>
+               <List>
                   {allBridgeData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}
@@ -184,12 +175,7 @@ const Home = ({ allBridgeData }) => {
                   {allBridgeData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}
-               </Upper>
-               {/* <Lower>
-                  {lowerData.map((data, idx) => (
-                     <IndexItem key={idx} data={data} />
-                  ))}
-               </Lower> */}
+               </List>
             </Screen>
          </Container>
       </Layout>

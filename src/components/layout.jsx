@@ -6,6 +6,7 @@ import ThemeSwitcher from './theme-switcher'
 import BurgerButton from './burger-button'
 import { useState } from 'react'
 import BurgerMenu from './burger-menu'
+import { createGlobalStyle } from 'styled-components'
 
 const BottomNav = styled.footer`
    display: flex;
@@ -15,6 +16,10 @@ const BottomNav = styled.footer`
    padding: 0 60px;
    position: absolute;
    bottom: 50px;
+`
+
+const StopScroll = createGlobalStyle`
+   body { overflow: hidden;}
 `
 
 export const siteTitle = 'kotoBridge'
@@ -28,6 +33,7 @@ const Layout = ({ children, home }) => {
 
    return (
       <>
+         {!menuVisibility && <StopScroll />}
          <Head>
             <title>
                {siteTitle}
@@ -58,7 +64,7 @@ const Layout = ({ children, home }) => {
             <Footer />
          )}
          <BurgerMenu menuVisibility={menuVisibility} />
-         <BurgerButton toggleMenu={toggleMenu} menuVisibility={menuVisibility}  />
+         <BurgerButton toggleMenu={toggleMenu} menuVisibility={menuVisibility} />
       </>
    )
 }

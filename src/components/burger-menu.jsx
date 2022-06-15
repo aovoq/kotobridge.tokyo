@@ -13,7 +13,7 @@ const Container = styled.div`
 `
 
 const BurgerMenu = (props) => {
-   return <Container style={{display: props.menuVisibility ? 'none' : '' }}></Container>
+   return <Container style={{ display: props.menuVisibility ? 'none' : '' }}></Container>
 }
 
 export default BurgerMenu

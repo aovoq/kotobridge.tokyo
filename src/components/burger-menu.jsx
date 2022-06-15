@@ -8,12 +8,12 @@ const Container = styled.div`
    height: 100%;
    z-index: 1200;
    background: rgba(255, 255, 255, 0.8);
-   display: none;
+   display: block;
    transition: 0.3s;
 `
 
 const BurgerMenu = (props) => {
-   return <Container style={{display: props.menuVisibility === true && 'block' }}></Container>
+   return <Container style={{display: props.menuVisibility ? 'none' : '' }}></Container>
 }
 
 export default BurgerMenu

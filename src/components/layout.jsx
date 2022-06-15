@@ -20,7 +20,7 @@ const BottomNav = styled.footer`
 export const siteTitle = 'kotoBridge'
 
 const Layout = ({ children, home }) => {
-   const [menuVisibility, setMenuVisibility] = useState(false)
+   const [menuVisibility, setMenuVisibility] = useState(true)
 
    const toggleMenu = () => {
       setMenuVisibility((prevState) => !prevState)
@@ -58,7 +58,7 @@ const Layout = ({ children, home }) => {
             <Footer />
          )}
          <BurgerMenu menuVisibility={menuVisibility} />
-         <BurgerButton toggleMenu={toggleMenu}  />
+         <BurgerButton toggleMenu={toggleMenu} menuVisibility={menuVisibility}  />
       </>
    )
 }

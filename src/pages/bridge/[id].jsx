@@ -55,7 +55,7 @@ const SubTitle = styled.h2`
    text-transform: uppercase;
    color: var(--accent);
    @media (max-width: 768px) {
-      bottom: calc((95vw - 15px) / 9 * 16);
+      bottom: calc((95vw - 15px) / 3 * 4);
       font-size: 48px;
    }
 `
@@ -66,10 +66,10 @@ const BridgeSVG = styled.img`
    left: 9%;
    bottom: calc((90vw - 30px) / 16 * 9 + 10px);
    transform: translateX(-50%);
-   @media (max-widtkh: 768px) {
+   @media (max-width: 768px) {
+      bottom: calc((95vw - 15px) / 3 * 4 - 30px);
       width: 90px;
-      top: 100px;
-      opacity: 0.4;
+      opacity: 0.6;
    }
 `
 

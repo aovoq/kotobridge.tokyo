@@ -28,10 +28,14 @@ const BridgeImg = styled.div`
    background-size: cover;
    background-position: center;
    height: 100%;
-   aspect-ratio: 16 / 9;
    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+   aspect-ratio: 16 / 9;
+   @-moz-document url-prefix() {
+      width: calc(20vh / 9 * 16);
+   }
    @media (max-width: 768px) {
       aspect-ratio: 3 / 1;
+      width: 100%;
       background-position: center 70%;
    }
    display: var(--day);

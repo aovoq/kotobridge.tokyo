@@ -8,11 +8,17 @@ import History from '../../components/history'
 
 const Container = styled.div`
    padding-top: 200px;
+   @media (max-width: 768px) {
+      padding-top: 120px;
+   }
 `
 
 const HeroWrapper = styled.div`
    position: relative;
    margin-bottom: 113px;
+   @media (max-width: 768px) {
+      margin-bottom: 30px;
+   }
 `
 const HeroImage = styled.img`
    display: var(--day);
@@ -20,6 +26,9 @@ const HeroImage = styled.img`
    border-top: solid 30px;
    border-right: solid 30px;
    border-color: #fff;
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 
 const Title = styled.h1`
@@ -31,24 +40,37 @@ const Title = styled.h1`
    text-stroke: 1px var(--accent);
    line-height: 1;
    text-align: right;
+   @media (max-width: 768px) {
+      font-size: 64px;
+   }
 `
 
 const SubTitle = styled.h2`
-   font-size: 128px;
+   font-size: min(8vw, 128px);
    font-weight: 800;
    position: absolute;
-   top: 66px;
+   bottom: calc((90vw - 30px) / 16 * 9);
+   line-height: 0.67;
    right: 0;
    text-transform: uppercase;
    color: var(--accent);
-   line-height: 96px;
+   @media (max-width: 768px) {
+      bottom: calc((95vw - 15px) / 9 * 16);
+      font-size: 48px;
+   }
 `
 
 const BridgeSVG = styled.img`
    position: absolute;
-   left: 10%;
-   top: 80px;
+   width: min(16vw, 190px);
+   left: 9%;
+   bottom: calc((90vw - 30px) / 16 * 9 + 10px);
    transform: translateX(-50%);
+   @media (max-widtkh: 768px) {
+      width: 90px;
+      top: 100px;
+      opacity: 0.4;
+   }
 `
 
 const BridgeDetails = styled.div`
@@ -58,6 +80,9 @@ const BridgeDetails = styled.div`
    display: flex;
    flex-direction: column;
    gap: 10px;
+   @media (max-width: 768px) {
+      bottom: 20px;
+   }
 `
 
 const BridgeDetail = styled.div`
@@ -69,8 +94,10 @@ const BridgeDetail = styled.div`
    letter-spacing: 0.1em;
    color: var(--bridge-detail-text);
    background: var(--bridge-detail-bg);
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+   @media (max-width: 768px) {
+      font-size: 12px;
+      padding: 0 10px 0 20px;
+   }
 `
 
 const Gallery = styled.section`
@@ -82,6 +109,7 @@ const Gallery = styled.section`
    overflow: hidden;
    @media (max-width: 768px) {
       gap: 25px;
+      margin-bottom: 85px;
    }
 `
 const GalleryImg = styled.img`
@@ -89,7 +117,8 @@ const GalleryImg = styled.img`
    border: 10px solid #fff;
    display: var(--day);
    @media (max-width: 768px) {
-      width: 60%;
+      width: 40%;
+      border-width: 5px;
    }
 `
 
@@ -102,6 +131,7 @@ const Intro = styled.section`
    gap: 100px;
    margin-bottom: 180px;
    @media (max-width: 768px) {
+      margin-bottom: 80px;
       flex-direction: column;
       gap: 80px;
    }
@@ -119,6 +149,10 @@ const IntroText = styled.div`
    }
    @media (max-width: 768px) {
       width: 90%;
+      font-size: 16px;
+      p:first-letter {
+         font-size: 26px;
+      }
    }
 `
 
@@ -270,6 +304,15 @@ const NightIntroImg = styled(IntroImg)`
    border: 10px solid var(--gray);
 `
 
+const MobileHeroImage = styled(HeroImage)`
+   border-width: 15px;
+   width: 95%;
+   display: none;
+   @media (max-width: 768px) {
+      display: var(--day);
+   }
+`
+
 export const getStaticProps = async ({ params }) => {
    const bridgeData = await getData(params.id)
    return {
@@ -302,6 +345,7 @@ const Bridge = ({ bridgeData }) => {
                <BridgeSVG src={`${imageBaseUrl}.svg`} />
                <HeroImage src={`${imageBaseUrl}-01.jpg`} />
                <NightHeroImage src={`${imageBaseUrl}-night-01.jpg`} />
+               <MobileHeroImage src={`${imageBaseUrl}-05.jpg`} />
                <BridgeDetails>
                   <BridgeDetail>River : {bridgeData.detail.river}</BridgeDetail>
                   <BridgeDetail>Length : {bridgeData.detail.length}</BridgeDetail>

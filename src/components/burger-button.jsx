@@ -20,11 +20,7 @@ const Container = styled.div`
 `
 
 const BurgerButton = (props) => {
-   return (
-      <Container onClick={props.toggleMenu}>
-         <Menu size={24} color='#fff' />
-      </Container>
-   )
+   return <Container onClick={props.toggleMenu}>{props.menuVisibility ? <Menu size={24} color='#fff' /> : <X size={24} color='#fff' />}</Container>
 }
 
 export default BurgerButton

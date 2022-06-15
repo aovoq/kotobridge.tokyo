@@ -1,6 +1,6 @@
 import Layout from '../components/layout'
 import styled from 'styled-components'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import normalizeWheel from 'normalize-wheel'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'

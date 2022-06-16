@@ -156,9 +156,6 @@ const History = (props) => {
       }
    })
 
-   console.log(leftHistory)
-   console.log(rightHistory)
-
    return (
       <Container>
          <HeadText>
@@ -169,8 +166,8 @@ const History = (props) => {
          </HeadBall>
          <Timeline>
             <ItemList>
-               {leftHistory.map((item) => (
-                  <LeftItem className='left'>
+               {leftHistory.map((item, _idx) => (
+                  <LeftItem className='left' key={_idx}>
                      <LeftItemStroke>
                         <LeftItemStrokeSlope />
                         <LeftItemStrokeHori />
@@ -184,8 +181,8 @@ const History = (props) => {
             </ItemList>
             <CenterStroke style={{ height: `calc(${props.data.length} * 100px + 100px)` }} />
             <ItemList>
-               {rightHistory.map((item) => (
-                  <Item className='right'>
+               {rightHistory.map((item, _idx) => (
+                  <Item className='right' key={_idx}>
                      <ItemStroke>
                         <ItemStrokeSlope />
                         <ItemStrokeHori />

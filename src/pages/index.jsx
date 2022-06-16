@@ -80,13 +80,13 @@ const Home = ({ allBridgeData }) => {
    const addEventListeners = () => {
       window.addEventListener('wheel', onScroll, { passive: false })
       window.addEventListener('resize', init)
-      document.addEventListener(
-         'touchmove',
-         (e) => {
-            e.preventDefault()
-         },
-         { passive: false },
-      )
+      // document.addEventListener(
+      //    'touchmove',
+      //    (e) => {
+      //       e.preventDefault()
+      //    },
+      //    { passive: false },
+      // )
    }
 
    const removeEventListeners = () => {

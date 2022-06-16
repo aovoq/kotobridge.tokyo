@@ -27,6 +27,9 @@ location:
       - departure: 浜町駅
         time: 徒歩八分
         distance: 600m
+   map_pin:
+      top: 5
+      left: 39.5
    map_link: https://goo.gl/maps/7aaMepchqixLqJTeA
    coordinate:
       n: 35°41'15.1"N

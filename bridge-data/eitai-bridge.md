@@ -27,6 +27,9 @@ location:
       - departure: 門前仲町駅
         time: 徒歩九分
         distance: 700m
+   map_pin:
+      top: 15
+      left: 34.5
    map_link: https://goo.gl/maps/myAEkvLuKeVcLFQB8
    coordinate:
       n: 35°40'34.5"N

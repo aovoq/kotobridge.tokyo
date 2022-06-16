@@ -27,6 +27,9 @@ location:
       - departure: 水天宮前
         time: 徒歩九分
         distance: 750m
+   map_pin:
+      top: 8
+      left: 38.5
    map_link: https://goo.gl/maps/UceuyXwsL35NJxsL8
    coordinate:
       n: 35°40'56.5"N

@@ -165,8 +165,8 @@ const Footer = () => {
                            <a>SUSUME</a>
                         </Link>
                      </li>
-                     <li>MAP</li>
-                     <li>LIST</li>
+                     {/* <li>MAP</li>
+                     <li>LIST</li> */}
                   </NavList>
                </Nav>
                <Contact>

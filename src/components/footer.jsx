@@ -77,6 +77,10 @@ const ContactContent = styled.div`
    letter-spacing: 0.4em;
    margin-bottom: 25px;
    text-transform: uppercase;
+   padding: 20px;
+   span {
+      display: inline-block;
+   }
    &:nth-of-type(3) {
       padding-bottom: 25px;
       border-bottom: 1px solid #fff;
@@ -172,7 +176,7 @@ const Footer = () => {
                <Contact>
                   <ContactTitle>CONTACT</ContactTitle>
                   <ContactContent>MANAGER: Ao Hirata</ContactContent>
-                  <ContactContent>EMAIL: contact@kotoBridge.tokyo</ContactContent>
+                  <ContactContent><span>EMAIL:&nbsp;</span><span>contact&copy;kotoBridge.tokyo</span></ContactContent>
                   <ContactSocials>
                      <a>
                         <I_Logo />

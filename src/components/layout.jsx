@@ -54,7 +54,7 @@ const Layout = ({ children, home }) => {
             <meta property='og:image:alt' content={siteTitle + ' - 江東区で橋巡り'} />
             <meta property='twitter:card' content='summary_large_image' />
          </Head>
-         <Header />
+         <Header home={home} />
          <main>{children}</main>
          {home ? (
             <BottomNav>
@@ -63,8 +63,8 @@ const Layout = ({ children, home }) => {
          ) : (
             <Footer />
          )}
-         <BurgerMenu menuVisibility={menuVisibility} />
-         <BurgerButton toggleMenu={toggleMenu} menuVisibility={menuVisibility} />
+         {/* <BurgerMenu menuVisibility={menuVisibility} />
+         <BurgerButton toggleMenu={toggleMenu} menuVisibility={menuVisibility} /> */}
       </>
    )
 }

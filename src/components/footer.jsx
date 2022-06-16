@@ -86,6 +86,7 @@ const ContactContent = styled.div`
    }
    @media (max-width: 768px) {
       text-align: center;
+      padding: 0 20px;
       &:nth-of-type(3) {
          padding-bottom: 25px;
          border-bottom: none;

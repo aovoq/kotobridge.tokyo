@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import Layout from '../../components/layout'
+import Layout, { siteTitle } from '../../components/layout'
 import MiniMap from '../../../public/images/minimap.svg'
 import { getAllDataIds, getData } from '../../lib/bridges'
 import { ArrowUpRight } from 'react-feather'
 import History from '../../components/history'
 
 const Container = styled.div`
-   padding-top: 200px;
+   padding-top: 150px;
    @media (max-width: 768px) {
       padding-top: 120px;
    }
@@ -76,7 +76,7 @@ const BridgeSVG = styled.img`
 const BridgeDetails = styled.div`
    position: absolute;
    left: 0;
-   bottom: 60px;
+   bottom: 20px;
    display: flex;
    flex-direction: column;
    gap: 10px;
@@ -89,11 +89,14 @@ const BridgeDetail = styled.div`
    display: inline-block;
    align-self: flex-start;
    padding: 0 20px 0 40px;
-   font-size: 20px;
+   font-size: 18px;
    font-weight: 300;
    letter-spacing: 0.1em;
    color: var(--bridge-detail-text);
    background: var(--bridge-detail-bg);
+   @media (max-width: 1200px) {
+      font-size: 16px;
+   }
    @media (max-width: 768px) {
       font-size: 12px;
       padding: 0 10px 0 20px;
@@ -237,6 +240,31 @@ const Coordinate = styled.p`
    /* font-family: monospace; */
 `
 
+const MapPin = styled.div`
+   position: absolute;
+   top: 0%;
+   left: 0%;
+   width: 30px;
+   height: 50px;
+   border-top: 25px solid var(--accent);
+   border-right: 15px solid transparent;
+   border-left: 15px solid transparent;
+   animation: mappin 2s linear 0s infinite;
+   transform: rotateY(0deg) translate(-30px, -50px);
+   transform-origin: 0px -25px;
+   @keyframes mappin {
+      0% {
+         transform: rotateY(0deg)  translate(-15px, -25px);
+      }
+      50% {
+         transform: rotateY(180deg)  translate(-15px, -30px);
+      }
+      100% {
+         transform: rotateY(360deg)  translate(-15px, -25px);
+      }
+   }
+`
+
 const LocationDetail = styled.div`
    @media (max-width: 768px) {
       width: 100%;
@@ -294,6 +322,9 @@ const LocationLink = styled.a`
 const NightHeroImage = styled(HeroImage)`
    display: var(--night);
    border-color: var(--gray);
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 const NightGalleryImg = styled(GalleryImg)`
    display: var(--night);
@@ -302,6 +333,9 @@ const NightGalleryImg = styled(GalleryImg)`
 const NightIntroImg = styled(IntroImg)`
    display: var(--night);
    border: 10px solid var(--gray);
+   @media (max-width: 768px) {
+      display: none;
+   }
 `
 
 const MobileHeroImage = styled(HeroImage)`
@@ -310,6 +344,14 @@ const MobileHeroImage = styled(HeroImage)`
    display: none;
    @media (max-width: 768px) {
       display: var(--day);
+   }
+`
+const MobileNightHeroImage = styled(NightHeroImage)`
+   border-width: 15px;
+   width: 95%;
+   display: none;
+   @media (max-width: 768px) {
+      display: var(--night)
    }
 `
 
@@ -336,7 +378,8 @@ const Bridge = ({ bridgeData }) => {
    return (
       <Layout>
          <Head>
-            <title>{bridgeData.title}</title>
+            <title>{siteTitle + ' | ' + bridgeData.title}</title>
+            <meta property='og:image' content={`https://kotobridge.tokyo/images/bridge/${bridgeData.id}/${bridgeData.id}-01.jpg`}/>
          </Head>
          <Container>
             <HeroWrapper>
@@ -346,6 +389,7 @@ const Bridge = ({ bridgeData }) => {
                <HeroImage src={`${imageBaseUrl}-01.jpg`} />
                <NightHeroImage src={`${imageBaseUrl}-night-01.jpg`} />
                <MobileHeroImage src={`${imageBaseUrl}-05.jpg`} />
+               <MobileNightHeroImage src={`${imageBaseUrl}-night-05.jpg`} />
                <BridgeDetails>
                   <BridgeDetail>River : {bridgeData.detail.river}</BridgeDetail>
                   <BridgeDetail>Length : {bridgeData.detail.length}</BridgeDetail>
@@ -372,6 +416,7 @@ const Bridge = ({ bridgeData }) => {
             <Location>
                <MapWrap>
                   <MiniMap />
+                  <MapPin style={{top: `${bridgeData.location.map_pin.top}%`,left: `${bridgeData.location.map_pin.left}%`}}/>
                   <Coordinate>
                      {bridgeData.location.coordinate.n}
                      <br />

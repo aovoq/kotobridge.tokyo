@@ -39,7 +39,7 @@ const Container = styled.div`
 
 const Catch = ({home}) => {
    return (
-      <Container style={{animationDelay: home && '2s'}}>
+      <Container style={{animationDelay: home && '2.5s'}}>
          {'PUSH!'.split('').map((c, idx) => (
             <span style={{ transform: `rotate(${280 + 16 * idx}deg)` }} key={idx}>
                {c}

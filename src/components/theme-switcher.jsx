@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Sun, Moon } from 'react-feather'
 import { ThemeContext } from '../lib/theme-provider'
 import { useContext } from 'react'
+import Catch from './catch'
 
 const Container = styled.div`
    display: flex;
@@ -46,6 +47,7 @@ const ThemeSwitcher = () => {
       <Container>
          <IconWrapper onClick={() => {theme.changeTheme('light')}} className={theme.theme === 'light' && 'active'}>
             <Sun size={24} />
+            <Catch home />
          </IconWrapper>
          <span>/</span>
          <IconWrapper onClick={() => {theme.changeTheme('dark')}} className={theme.theme === 'dark' && 'active'}>

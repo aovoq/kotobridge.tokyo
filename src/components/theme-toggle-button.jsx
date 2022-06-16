@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Sun, Moon } from 'react-feather'
 import { ThemeContext } from '../lib/theme-provider'
 import { useContext } from 'react'
+import Catch from './catch'
 
 const Container = styled.div`
    cursor: pointer;
@@ -51,6 +52,7 @@ const ThemeToggleButton = () => {
          }}>
          <Moon size={24} className={`${theme === 'dark' ? 'hidden' : ''}`} />
          <Sun size={24} className={`${theme === 'light' ? 'hidden' : ''}`} />
+         <Catch />
       </Container>
    )
 }

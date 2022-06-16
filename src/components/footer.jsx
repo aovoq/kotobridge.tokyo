@@ -77,7 +77,6 @@ const ContactContent = styled.div`
    letter-spacing: 0.4em;
    margin-bottom: 25px;
    text-transform: uppercase;
-   padding: 20px;
    span {
       display: inline-block;
    }

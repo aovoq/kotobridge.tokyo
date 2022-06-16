@@ -26,7 +26,7 @@ const LogoWrapper = styled.div`
 
 const NavLink = styled.ul`
    display: flex;
-   gap: 80px;
+   gap: 40px;
    font-size: 20px;
    text-transform: uppercase;
    font-weight: 500;
@@ -37,13 +37,12 @@ const NavLink = styled.ul`
 `
 
 const MobileHead = styled.div`
-
    @media (min-width: 768px) {
       display: none;
    }
 `
 
-const Header = () => {
+const Header = ({ home }) => {
    return (
       <AppHeader>
          <LogoWrapper>
@@ -59,8 +58,7 @@ const Header = () => {
                   <li>susume</li>
                </a>
             </Link>
-            <li>map</li>
-            <li>list</li>
+            {!home && <ThemeToggleButton />}
          </NavLink>
          <MobileHead>
             <ThemeToggleButton />

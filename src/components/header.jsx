@@ -37,6 +37,25 @@ const NavLink = styled.ul`
    @media (max-width: 768px) {
       display: none;
    }
+   a {
+      position: relative;
+   }
+   a::before {
+      content: '';
+      position: absolute;
+      width: 95%;
+      height: 2px;
+      border-radius: 2px;
+      background-color: var(--base-color);
+      left: 0;
+      bottom: -2px;
+      transform-origin: center;
+      transform: scaleX(0);
+      transition: transform .3s ease-in-out;
+   }
+   a:hover::before {
+      transform: scaleX(1);
+   }
 `
 
 const MobileHead = styled.div`

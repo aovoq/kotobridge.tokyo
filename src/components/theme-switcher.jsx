@@ -20,11 +20,24 @@ const Container = styled.div`
 `
 
 const IconWrapper = styled.div`
+   cursor: pointer;
    position: relative;
    width: 24px;
    height: 24px;
    z-index: 0;
+   svg {
+      transition: 0.3s ease;
+      fill: rgba(0,0,0,0);
+   }
+   svg:hover {
+      stroke: var(--accent);
+      fill: var(--accent);
+   }
    &.active {
+      svg:hover {
+         stroke: var(--gray);
+         fill: none;
+      }
       &::before {
          content: '';
          position: absolute;
@@ -45,12 +58,20 @@ const ThemeSwitcher = () => {
 
    return (
       <Container>
-         <IconWrapper onClick={() => {theme.changeTheme('light')}} className={theme.theme === 'light' && 'active'}>
+         <IconWrapper
+            onClick={() => {
+               theme.changeTheme('light')
+            }}
+            className={theme.theme === 'light' && 'active'}>
             <Sun size={24} />
             <Catch home />
          </IconWrapper>
          <span>/</span>
-         <IconWrapper onClick={() => {theme.changeTheme('dark')}} className={theme.theme === 'dark' && 'active'}>
+         <IconWrapper
+            onClick={() => {
+               theme.changeTheme('dark')
+            }}
+            className={theme.theme === 'dark' && 'active'}>
             <Moon size={24} />
          </IconWrapper>
       </Container>

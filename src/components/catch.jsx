@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
+   pointer-events: none;
    width: 100px;
    height: 100px;
    position: absolute;
@@ -37,9 +38,9 @@ const Container = styled.div`
    }
 `
 
-const Catch = ({home}) => {
+const Catch = ({ home }) => {
    return (
-      <Container style={{animationDelay: home && '3s'}}>
+      <Container style={{ animationDelay: home && '3s' }}>
          {'PUSH!'.split('').map((c, idx) => (
             <span style={{ transform: `rotate(${280 + 16 * idx}deg)` }} key={idx}>
                {c}

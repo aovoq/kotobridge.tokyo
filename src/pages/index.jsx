@@ -90,7 +90,7 @@ const Home = ({ allBridgeData }) => {
    }
 
    const removeEventListeners = () => {
-      console.log('revemoEventListener')
+      console.log('removeEventListeners()')
       window.removeEventListener('wheel', onScroll, { passive: false })
       window.removeEventListener('resize', init)
    }
@@ -129,7 +129,7 @@ const Home = ({ allBridgeData }) => {
       console.log('init')
       limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
       images = [...document.querySelectorAll('.bridgeImg')]
-      update()
+      // update()
    }
 
    const onScroll = (event) => {
@@ -151,6 +151,7 @@ const Home = ({ allBridgeData }) => {
       console.log('hello')
       addEventListeners()
       init()
+      update()
       router.events.on('routeChangeStart', handleRouteChange)
       return () => {
          router.events.off('routeChangeStart', handleRouteChange)

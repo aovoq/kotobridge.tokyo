@@ -7,17 +7,19 @@ const Container = styled.div`
    position: relative;
    &:nth-child(odd) {
       transform: translate3d(0, -5vh, 0);
-      transition: .3s ease;
-   }
-   &:nth-child(odd):hover {
-      transform: translate3d(0, -5.5vh, 0);
+      transition: 0.3s ease;
    }
    &:nth-child(even) {
       transform: translate3d(0, 10vh, 0);
-      transition: .3s ease;
+      transition: 0.3s ease;
    }
-   &:nth-child(even):hover {
-      transform: translate3d(0, 9.5vh, 0);
+   @media (min-width: 768px) {
+      &:nth-child(odd):hover {
+         transform: translate3d(0, -5.5vh, 0);
+      }
+      &:nth-child(even):hover {
+         transform: translate3d(0, 9.5vh, 0);
+      }
    }
    @media (max-width: 768px) {
       &:nth-child(odd) {
@@ -88,7 +90,7 @@ const InnerText = styled.div`
 `
 
 const IndexItem = (props) => {
-   const {theme} = useContext(ThemeContext)
+   const { theme } = useContext(ThemeContext)
    return (
       <Container>
          <Link href={`/bridge/${props.data.id}`}>

@@ -14,6 +14,7 @@ const AppHeader = styled.header`
    padding: 0 60px;
    color: var(--base-color);
    z-index: 999;
+   overflow: hidden;
    @media (max-width: 768px) {
       padding: 0 40px;
    }

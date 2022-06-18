@@ -454,7 +454,7 @@ const Bridge = ({ bridgeData }) => {
                         ))}
                      </tbody>
                   </LocationAccess>
-                  <LocationLink>
+                  <LocationLink href={bridgeData.location.map_link} target='_blank' rel="noopener">
                      <p>
                         <ArrowUpRight />
                         Google MAP

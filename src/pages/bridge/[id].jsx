@@ -305,11 +305,16 @@ const LocationAccess = styled.table`
    font-family: 'Noto sans JP';
    letter-spacing: 0.3em;
    margin-bottom: 88px;
+   width: 100%;
+   tr {
+      display: flex;
+   }
    td {
       padding-bottom: 5px;
    }
    td:nth-of-type(1) {
       width: 135px;
+      flex: 1;
    }
    td:nth-of-type(2) {
       width: 115px;

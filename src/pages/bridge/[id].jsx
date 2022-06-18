@@ -82,6 +82,7 @@ const BridgeDetails = styled.div`
    gap: 10px;
    @media (max-width: 768px) {
       bottom: 20px;
+      max-width: 80%;
    }
 `
 

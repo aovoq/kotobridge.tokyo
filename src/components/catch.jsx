@@ -31,8 +31,13 @@ const Container = styled.div`
          transform: translate(-25px, -25px) rotate(0deg);
          opacity: 1;
       }
-      100% {
+      99% {
+         display: none;
          transform: translate(-25px, -25px) rotate(30deg);
+         opacity: 0;
+      }
+      100% {
+         transform: translate(-25px, -25px) rotate(30deg) scale(0);
          opacity: 0;
       }
    }

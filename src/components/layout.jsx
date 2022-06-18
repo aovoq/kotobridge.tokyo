@@ -16,7 +16,6 @@ const BottomNav = styled.footer`
    padding: 0 60px;
    position: absolute;
    bottom: 50px;
-   overflow: hidden;
 `
 
 const StopScroll = createGlobalStyle`

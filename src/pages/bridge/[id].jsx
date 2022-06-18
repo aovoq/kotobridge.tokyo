@@ -206,12 +206,16 @@ const IntroImg = styled.img`
 
 const Location = styled.div`
    max-width: 1000px;
+   padding: 20px;
    margin: auto;
    display: flex;
    justify-content: space-between;
    align-items: center;
    gap: 100px;
    margin-bottom: 180px;
+   @media (max-width: 1000px) {
+      gap: 60px;
+   }
    @media (max-width: 768px) {
       flex-direction: column;
       width: 90%;

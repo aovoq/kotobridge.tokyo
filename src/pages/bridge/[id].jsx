@@ -127,12 +127,16 @@ const GalleryImg = styled.img`
 
 const Intro = styled.section`
    max-width: 1000px;
+   padding: 0 20px;
    margin: auto;
    display: flex;
    justify-content: space-between;
    align-items: center;
    gap: 100px;
    margin-bottom: 180px;
+   @media (max-width: 1000px) {
+      gap: 60px;
+   }
    @media (max-width: 768px) {
       margin-bottom: 80px;
       flex-direction: column;

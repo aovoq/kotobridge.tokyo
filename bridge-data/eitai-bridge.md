@@ -59,6 +59,6 @@ en:
            time: 9 min. walk
            distance: 700m
 ---
-まじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるい
+隅田川の上流側から永代橋を見た時の、バックにそびえる高層ビル群との眺望が美しい。夜には青くライトアップされ摩天楼の様な情景が見れる。
 ---en
 Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing

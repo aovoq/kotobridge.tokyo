@@ -80,11 +80,9 @@ const Loading = () => {
    useEffect(() => {
       if (sessionStorage.getItem('access')) {
          setSkip(true)
-         console.log('nikaime')
       } else {
          sessionStorage.setItem('access', 0)
          setSkip(false)
-         console.log('hajimete')
       }
    })
 

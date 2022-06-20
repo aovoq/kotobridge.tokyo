@@ -22,10 +22,11 @@ const Container = styled.div`
 
 const Screen = styled.div`
    position: relative;
-   display: inline-block;
+   display: flex;
    top: 0;
    left: 0;
    height: 100%;
+   width: max-content;
    white-space: nowrap;
    gap: 64px;
    will-change: transform;
@@ -41,6 +42,7 @@ const List = styled.div`
    display: flex;
    gap: 180px;
    margin: 0 100px;
+   will-change: transform;
    @media (max-width: 768px) {
       top: 120px;
       flex-direction: column;
@@ -52,10 +54,10 @@ const List = styled.div`
 const Home = ({ allBridgeData }) => {
    const router = useRouter()
    const screenRef = useRef(null)
-   let images
    let current = 0
    let target = 0
    let limit = 0
+   let screenWidth = 0
    let request
    let stop = false
    const upperData = []
@@ -79,7 +81,7 @@ const Home = ({ allBridgeData }) => {
 
    const addEventListeners = () => {
       window.addEventListener('wheel', onScroll, { passive: false })
-      window.addEventListener('resize', init)
+      window.addEventListener('resize', onResize)
       // document.addEventListener(
       //    'touchmove',
       //    (e) => {
@@ -92,65 +94,72 @@ const Home = ({ allBridgeData }) => {
    const removeEventListeners = () => {
       console.log('removeEventListeners()')
       window.removeEventListener('wheel', onScroll, { passive: false })
-      window.removeEventListener('resize', init)
+      window.removeEventListener('resize', onResize)
    }
 
-   const parallaxImages = () => {
-      const ratio = current / 1400
-      let intersectionRatioValue
-
-      images.forEach((img, idx) => {
-         intersectionRatioValue = ratio - idx * 0.7
-         img.style = `transform: translate3d(${intersectionRatioValue * 70}px, 0, 0)`
-      })
-   }
+   // const update = () => {
+   //    if (stop) {
+   //       cancelAnimationFrame(request)
+   //       return
+   //    }
+   //    target = _clamp(0, limit, target)
+   //    current = _lerp(current, target, 0.075).toFixed(2)
+   //    if (current < 0.1) {
+   //       current = 0
+   //    }
+   //    if (document.getElementById('screen') !== null) {
+   //       document.querySelector('#screen').style = `transform: translate3d(-${current}px, 0, 0)`
+   //    } else {
+   //       cancelAnimationFrame(request)
+   //       return
+   //    }
+   //    request = requestAnimationFrame(update)
+   // }
 
    const update = () => {
       if (stop) {
          cancelAnimationFrame(request)
          return
       }
-      target = _clamp(0, limit, target)
-      current = _lerp(current, target, 0.075).toFixed(2)
-      if (current < 0.1) {
-         current = 0
-      }
-      if (document.querySelector('#screen') !== null) {
-         document.querySelector('#screen').style = `transform: translate3d(-${current}px, 0, 0)`
+      current = _lerp(current, target, 0.07).toFixed(2)
+      console.log(current)
+
+      if (document.getElementById('screen') !== null) {
+         const index = (current / screenWidth) * 2
+         const multipler = Math.floor(index)
+         document.getElementById('first').style.transform = `translate3d(${-current + ( multipler * screenWidth) / 2}px, 0, 0)`
+         document.getElementById('second').style.transform = `translate3d(${-current + ( multipler * screenWidth) / 2}px, 0, 0)`
       } else {
          cancelAnimationFrame(request)
          return
       }
-      // parallaxImages()
-      request = requestAnimationFrame(update)
-   }
 
-   const init = () => {
-      console.log('init')
-      limit = screenRef.current.getBoundingClientRect().width - window.innerWidth
-      images = [...document.querySelectorAll('.bridgeImg')]
-      // update()
+      request = requestAnimationFrame(update)
    }
 
    const onScroll = (event) => {
       if (window.matchMedia('(min-width: 768px)').matches) {
          event.preventDefault()
-         console.log('onScroll')
          const normalized = normalizeWheel(event)
          target += normalized.pixelY
       }
    }
 
+   const onResize = () => {
+      if (document.getElementById('screen') !== null) {
+         limit = document.getElementById('screen').getBoundingClientRect().width - window.innerWidth
+         screenWidth = document.getElementById('screen').getBoundingClientRect().width
+      }
+   }
+
    const handleRouteChange = () => {
-      console.log('stop')
       stop = true
       removeEventListeners()
    }
 
    useEffect(() => {
-      console.log('hello')
       addEventListeners()
-      init()
+      onResize()
       update()
       router.events.on('routeChangeStart', handleRouteChange)
       return () => {
@@ -163,16 +172,12 @@ const Home = ({ allBridgeData }) => {
          <Loading />
          <Container>
             <Screen ref={screenRef} id='screen'>
-               <List>
+               <List id='first'>
                   {allBridgeData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}
-                  {allBridgeData.map((data, idx) => (
-                     <IndexItem key={idx} data={data} />
-                  ))}
-                  {allBridgeData.map((data, idx) => (
-                     <IndexItem key={idx} data={data} />
-                  ))}
+               </List>
+               <List id='second'>
                   {allBridgeData.map((data, idx) => (
                      <IndexItem key={idx} data={data} />
                   ))}

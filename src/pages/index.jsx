@@ -1,11 +1,19 @@
 import Layout from '../components/layout'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { useEffect, useRef } from 'react'
 import normalizeWheel from 'normalize-wheel'
 import { useRouter } from 'next/router'
 import IndexItem from '../components/index-item'
 import { getSortedData } from '../lib/bridges'
 import Loading from '../components/index-loading'
+
+const GlobalStyle = createGlobalStyle`
+   body {
+      @media (min-width: 768px) {
+         overflow: hidden;
+      }
+   }
+`
 
 const Container = styled.div`
    position: fixed;
@@ -32,6 +40,7 @@ const Screen = styled.div`
    will-change: transform;
    @media (max-width: 768px) {
       width: 100%;
+      flex-direction: column;
    }
 `
 
@@ -48,6 +57,9 @@ const List = styled.div`
       flex-direction: column;
       gap: 60px;
       margin: 0;
+      &#second {
+         display: none;
+      }
    }
 `
 
@@ -169,6 +181,7 @@ const Home = ({ allBridgeData }) => {
 
    return (
       <Layout home>
+         <GlobalStyle />
          <Loading />
          <Container>
             <Screen ref={screenRef} id='screen'>

@@ -1,11 +1,11 @@
 <div align="center">
    <h1><a href="https://kotobridge.tokyo">kotoBridge.tokyo</a></h1>
    <a href="./LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/license-MIT-blue.svg?maxAge=43200"></a>
-   <a href="./search?l=javascript"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/aovoq/kotobridge.tokyo?color=yellow"></a>
-   <a href="./commits/main"><img alt="GitHub commits since tagged version" src="https://img.shields.io/github/commits-since/aovoq/kotobridge.tokyo/1b873b6"></a>
+   <a href="../../search?l=javascript"><img alt="GitHub top language" src="https://img.shields.io/github/languages/top/aovoq/kotobridge.tokyo?color=yellow"></a>
+   <a href="../../commits/main"><img alt="GitHub commits since tagged version" src="https://img.shields.io/github/commits-since/aovoq/kotobridge.tokyo/1b873b6"></a>
    <a href="https://kotobridge.tokyo"><img alt="Chromium HSTS preload" src="https://img.shields.io/hsts/preload/kotobridge-tokyo.vercel.app"></a>
-   <a href="./blob/main/package.json"><img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/next"></a>
-   <a href="./blob/main/package.json"><img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/react"></a>
+   <a href="./package.json"><img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/next"></a>
+   <a href="./package.json"><img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/react"></a>
    <p>
       <b>kotoBridge.tokyo</b> は、江東区の橋をビジュアル的に紹介するサイトである。<br/>
       indexページは横スクロールとなっており、<br/>

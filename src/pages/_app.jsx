@@ -47,6 +47,7 @@ body {
    background: var(--bg);
    overscroll-behavior: none;
    overflow-x: hidden;
+   height: 100%;
 }
 
 #__next {

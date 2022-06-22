@@ -1,8 +1,20 @@
-# kotoBridge.tokyo
-[kotobridge.tokyo](https://kotobridge.tokyo) は、江東区の橋をビジュアル的に紹介するサイトである。indexページは横スクロールとなっている。  
-`bridge-data`フォルダーに`.md`ファイルを追加することによって記事を増やすことができる。  
-Leadersの課題として作成された。
-
+<div align="center">
+   <h1><a href="https://kotobridge.tokyo">kotoBridge.tokyo</a></h1>
+   <a href="./LICENSE">
+      <img alt="LICENSE" src="https://img.shields.io/badge/license-MIT-blue.svg?maxAge=43200">
+   </a>
+   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/aovoq/kotobridge.tokyo?color=yellow">
+   <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/aovoq/kotobridge.tokyo">
+   <img alt="Chromium HSTS preload" src="https://img.shields.io/hsts/preload/kotobridge-tokyo.vercel.app">
+   <img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/next">
+   <img alt="GitHub package.json dependency version (prod)" src="https://img.shields.io/github/package-json/dependency-version/aovoq/kotobridge.tokyo/react">
+   <p>
+      <b>kotoBridge.tokyo</b> は、江東区の橋をビジュアル的に紹介するサイトである。<br/>
+      indexページは横スクロールとなっており、<br/>
+      <code>bridge-data</code>フォルダーに<code>.md</code>ファイルを追加することによって記事を増やすことができる。<br/>
+      Leadersの課題として作成された。
+   </p>
+<div>
 
 <table>
    <tr>

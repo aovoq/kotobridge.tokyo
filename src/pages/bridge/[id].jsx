@@ -7,9 +7,9 @@ import { ArrowUpRight } from 'react-feather'
 import History from '../../components/history'
 
 const Container = styled.div`
-   padding-top: 150px;
+   padding-top: 80px;
    @media (max-width: 768px) {
-      padding-top: 120px;
+      padding-top: 60px;
    }
 `
 

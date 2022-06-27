@@ -53,7 +53,7 @@ const List = styled.div`
    margin: 0 100px;
    will-change: transform;
    @media (max-width: 768px) {
-      top: 120px;
+      top: 60px;
       flex-direction: column;
       gap: 60px;
       margin: 0;

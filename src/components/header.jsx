@@ -4,8 +4,9 @@ import Logo from '../../public/images/kotobridge_logo.svg'
 import ThemeToggleButton from './theme-toggle-button'
 
 const AppHeader = styled.header`
-   position: absolute;
-   top: 40px;
+   /* position: absolute;
+   top: 40px; */
+   margin-top: 40px;
    display: flex;
    justify-content: space-between;
    align-items: center;

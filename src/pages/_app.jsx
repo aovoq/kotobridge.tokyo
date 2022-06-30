@@ -46,7 +46,6 @@ body {
    color: var(--text);
    background: var(--bg);
    overscroll-behavior: none;
-   overflow-x: hidden;
    height: 100%;
 }
 

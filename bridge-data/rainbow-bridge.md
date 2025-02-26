@@ -36,3 +36,5 @@ location:
       e: 139°45'57.1"E
 ---
 東京臨海副都心と既存都心部を結ぶために建設され、海とビル群の景色や夜景など眺望が良好なことから週末のドライブコースとしても人気がある。あまり知られていないが、レインボープロムナードという歩道が下層の両側にあり無料で歩いて渡ることができ20,30分程度で渡りきれる。自転車も専用の貸出台車に乗せて手押しにはなるが通行が可能。
+---en
+The Rainbow Bridge was constructed to connect Tokyo's waterfront subcenter with the existing city center. It is popular as a weekend driving course due to its excellent views of the sea, skyscrapers, and night scenery. Although not widely known, there is a walkway called the Rainbow Promenade on both sides of the lower level, which can be crossed on foot for free in about 20-30 minutes. Bicycles can also pass through, although they must be pushed on special rental carts.

@@ -59,6 +59,6 @@ en:
            time: 9 min. walk
            distance: 750m
 ---
-清洲橋は、永代橋とともに震災復興事業として「中洲の渡し」と呼ばれる渡し場に架橋されました。西詰の日本橋区中洲町、東詰の深川区清住町の1字ずつを取り「清洲橋」という名になった。繊細な女性的なデザインとし、当時世界で最も美しいとされていたドイツ、ケルン市にあったヒンデンブルク橋がモデルとされ、自碇式吊橋が採用された。
+清洲橋は、永代橋とともに震災復興事業として「中洲の渡し」と呼ばれる渡し場に架橋されました。西詰の日本橋区中洲町、東詰の深川区清住町の1字ずつを取り「清洲橋」という名になった。繊細な女性的なデザインとし、当時世界で最も美しいとされていたドイツ、ケルン市にあったヒンデンブルク橋がモデルとされ、自碇式吊橋が採用されました。
 ---en
 Kiyosubashi Bridge, together with Eitaibashi Bridge, was built at a ferry called "Nakasu no Watashi" as part of an earthquake reconstruction project. The name "Kiyosubashi" was taken from one character each of Nakasu-cho, Nihonbashi Ward at the west end and Kiyosumi-cho, Fukagawa Ward at the east end. The bridge was designed to be delicate and feminine, and was modeled after the Hindenburg Bridge in Cologne, Germany, which was considered the most beautiful bridge in the world at the time, and a self-contained suspension bridge was adopted.

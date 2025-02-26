@@ -34,3 +34,5 @@ location:
       e: 139°46'15.0"E
 ---
 隅田川で最も下流に位置し、非常に新しい橋である。臨海部の開発に伴って架けられた橋で、築地市場が豊洲に移転することになった事で都市計画変更が行われ「（仮称）隅田川橋りょう」として整備が始まった。永代橋や勝鬨橋などの、隅田川伝統ののアーチ形式を引き継ぎながらも個性的なアーチ橋となっている。非常に綺麗な色のライトアップが美しい。
+---en
+Tsukiji Bridge is the newest bridge located at the most downstream point of the Sumida River. It was constructed as part of the development of the coastal area. When it was decided that the Tsukiji Market would be relocated to Toyosu, urban planning changes were made, and the bridge's development began under the name "(Provisional) Sumida River Bridge". While inheriting the traditional arch style of Sumida River bridges such as Eitai Bridge and Kachidoki Bridge, it has become a unique arch bridge in its own right. The bridge is particularly beautiful when illuminated with its very attractive colored lights at night.

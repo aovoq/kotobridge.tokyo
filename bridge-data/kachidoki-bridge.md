@@ -38,3 +38,6 @@ location:
       e: 139°46'29.8"E
 ---
 日本でも現存する数少ない稼働橋ではあるが、1980年に機械部の送電は取りやめられており、可動部はロックされているため跳開する事はない。中央部が上下に開く構造となっており当時は約70秒で全開となった、橋梁の歩道部には４つの小屋があり、それぞれ運転室、見張り室、宿直室などになっている。橋の袂の築地側には変電所を改装した資料館があり勝鬨橋もある。
+---en
+Although it is one of the few remaining movable bridges in Japan, the power transmission to the mechanical parts was discontinued in 1980, and the movable section is locked, so it no longer opens. The central part has a structure that opens up and down, and at the time, it could fully open in about 70 seconds. There are four small houses on the pedestrian walkway of the bridge, which serve as the control room, lookout room, and night duty room, among others. At the foot of the bridge on the Tsukiji side, there is a museum converted from a substation, which also features information about the Kachidoki Bridge.
+

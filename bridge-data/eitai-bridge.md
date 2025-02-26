@@ -59,6 +59,7 @@ en:
            time: 9 min. walk
            distance: 700m
 ---
-隅田川の上流側から永代橋を見た時の、バックにそびえる高層ビル群との眺望が美しい。夜には青くライトアップされ摩天楼の様な情景が見れる。
+永代橋は、隅田川に架かる歴史ある橋梁で、その美しさは周囲の景観と見事に調和しています。特に、隅田川の上流側から永代橋を眺めると、橋の背後にそびえ立つ高層ビル群との対比が印象的な眺望を生み出します。この景色は、東京の伝統と現代が融合した象徴的な風景として知られています。夜になると、永代橋は青色にライトアップされ、周囲の高層ビルの明かりと相まって、まるで摩天楼のような幻想的な情景を作り出します。この夜景は、都市の活気と美しさを同時に感じさせる、東京の夜の魅力を存分に味わえる光景として人気を集めています。
 ---en
-Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing
+Eitai Bridge, spanning the Sumida River, is a historic bridge that beautifully harmonizes with its surroundings. Particularly when viewed from upstream, the bridge creates a striking contrast with the towering skyscrapers behind it, offering an impressive vista. This view is known as an iconic landscape where Tokyo's tradition and modernity blend seamlessly. At night, Eitai Bridge is illuminated in blue, and together with the lights of the surrounding high-rise buildings, it creates a fantastical scene reminiscent of a skyline. This night view, simultaneously conveying the city's vibrancy and beauty, is a popular sight that fully captures the charm of Tokyo at night.
+

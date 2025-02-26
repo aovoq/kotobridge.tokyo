@@ -30,3 +30,5 @@ location:
       e: 139°47'03.9"E
 ---
 隅田川で平成に始めて建造された橋で、1993年に竣工された。そのため歴史はあまりないがフランスのデザイン会社が設計した日本の「兜」をイメージした美しいデザインと夜のライトアップ、上流側から見た時のバックにそびえるビル群は絶景である。また、上流側の中央に「メッセンジャー」と名付けられた彫像が鎮座している。
+---en
+The Chuo Bridge was the first bridge to be built over the Sumida River in the Heisei era, completed in 1993. Although it doesn't have much history, its beautiful design inspired by Japanese "kabuto" helmets, created by a French design company, along with its night illumination and the view of skyscrapers in the background when seen from upstream, is spectacular. Additionally, a statue named "Messenger" is situated in the center on the upstream side.

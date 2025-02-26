@@ -59,6 +59,6 @@ en:
            time: 8 min. walk
            distance: 600m
 ---
-まじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるいまじで文章考えるのだるい
+新大橋は、1693年に最初の橋が架けられ、長い歴史を持つこの橋は、現在の形になったのは1977年の竣工時です。旧橋は2004年に国の登録有形文化財に指定されました。橋のデザインは現代的な美しさと機能性を兼ね備えており、特に夜間のライトアップが美しく、訪れる人々を魅了します。隅田川の美しい景観を楽しむことができるスポットであり、ライトアップされた夜には幻想的な雰囲気を醸し出します。伝統的な日本の美意識と現代的な技術が融合したデザインは、訪れる人々に感動を与えます。
 ---en
-Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing Seriously, I'm tired of thinking about writing
+Shin-Ohashi Bridge, first constructed in 1693, has a long history, with its current form completed in 1977. The old bridge was designated as a National Tangible Cultural Property in 2004. The bridge's design combines modern beauty and functionality, particularly captivating visitors with its beautiful nighttime illumination. It serves as an excellent spot to enjoy the scenic views of the Sumida River, creating a magical atmosphere when lit up at night. The design, which fuses traditional Japanese aesthetics with modern technology, leaves a lasting impression on visitors.

@@ -81,9 +81,11 @@ const InnerText = styled.div`
    font-weight: 800;
    color: var(--index-text-fill);
    color: transparent;
+   color: var(--bg);
    opacity: 0.6;
-   -webkit-text-stroke: 1px var(--accent);
-   text-stroke: 1px var(--accent);
+   -webkit-text-stroke: 2px var(--accent);
+   text-stroke: 2px var(--accent);
+   paint-order: stroke fill;
    @media (max-width: 768px) {
       display: none;
    }
@@ -100,7 +102,7 @@ const IndexItem = (props) => {
                   <NightBridgeImg style={{ backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-night-01.jpg')` }} />
                   <InnerText>{props.data.title}</InnerText>
                </ImgWrap>
-               {<OuterText>{props.data.id}</OuterText>}
+               <OuterText>{props.data.id}</OuterText>
             </a>
          </Link>
       </Container>

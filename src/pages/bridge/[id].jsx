@@ -36,8 +36,10 @@ const Title = styled.h1`
    font-weight: 900;
    font-family: 'Noto Sans JP', sans-serif;
    color: transparent;
-   -webkit-text-stroke: 1px var(--accent);
-   text-stroke: 1px var(--accent);
+   color: var(--bg);
+   -webkit-text-stroke: 2px var(--accent);
+   text-stroke: 2px var(--accent);
+   paint-order: stroke fill;
    line-height: 1;
    text-align: right;
    @media (max-width: 768px) {

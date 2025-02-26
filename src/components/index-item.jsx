@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import styled from 'styled-components'
-import { ThemeContext } from '../lib/theme-provider'
-import { useContext } from 'react'
+import Link from "next/link";
+import styled from "styled-components";
+import { ThemeContext } from "../lib/theme-provider";
+import { useContext } from "react";
 
 const Container = styled.div`
    position: relative;
@@ -31,7 +31,11 @@ const Container = styled.div`
       }
       width: 85%;
    }
-`
+   ::-webkit-full-page-media, :future, :root, & {
+      width: calc(20vh / 9 * 16);
+      height: 20vh;
+   }
+`;
 
 const BridgeImg = styled.div`
    /* background: url('/images/bridge/kiyosu-bridge/kiyosu-bridge-01.jpg'); */
@@ -49,10 +53,10 @@ const BridgeImg = styled.div`
       background-position: center 70%;
    }
    display: var(--day);
-`
+`;
 const NightBridgeImg = styled(BridgeImg)`
    display: var(--night);
-`
+`;
 
 const OuterText = styled.div`
    position: absolute;
@@ -64,20 +68,20 @@ const OuterText = styled.div`
    line-height: 1;
    text-align: right;
    text-transform: uppercase;
-`
+`;
 
 const ImgWrap = styled.div`
    position: relative;
    line-height: 1.06;
    height: 100%;
-`
+`;
 
 const InnerText = styled.div`
    position: absolute;
    bottom: 0;
    top: -1.1em;
    font-size: min(8vh, 60px);
-   font-family: 'Noto sans JP';
+   font-family: "Noto sans JP";
    font-weight: 800;
    color: var(--index-text-fill);
    color: transparent;
@@ -89,24 +93,32 @@ const InnerText = styled.div`
    @media (max-width: 768px) {
       display: none;
    }
-`
+`;
 
 const IndexItem = (props) => {
-   const { theme } = useContext(ThemeContext)
+   const { theme } = useContext(ThemeContext);
    return (
       <Container>
          <Link href={`/bridge/${props.data.id}`}>
             <a>
                <ImgWrap>
-                  <BridgeImg style={{ backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-01.jpg')` }} />
-                  <NightBridgeImg style={{ backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-night-01.jpg')` }} />
+                  <BridgeImg
+                     style={{
+                        backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-01.jpg')`,
+                     }}
+                  />
+                  <NightBridgeImg
+                     style={{
+                        backgroundImage: `url('/images/bridge/${props.data.id}/${props.data.id}-night-01.jpg')`,
+                     }}
+                  />
                   <InnerText>{props.data.title}</InnerText>
                </ImgWrap>
                <OuterText>{props.data.id}</OuterText>
             </a>
          </Link>
       </Container>
-   )
-}
+   );
+};
 
-export default IndexItem
+export default IndexItem;
